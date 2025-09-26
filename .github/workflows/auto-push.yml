@@ -1,0 +1,49 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/.github/workflows/auto-push.yml
+index 0000000000000000000000000000000000000000..cc4920d9ef80469a5c5c66f4d9f57e37f9472cc8 100644
+--- a//dev/null
++++ b/.github/workflows/auto-push.yml
+@@ -0,0 +1,40 @@
++name: Auto Push
++
++on:
++  workflow_dispatch:
++  push:
++    branches:
++      - main
++
++jobs:
++  publish:
++    name: Publish updates
++    runs-on: ubuntu-latest
++    permissions:
++      contents: write
++    steps:
++      - name: Checkout repository
++        uses: actions/checkout@v4
++        with:
++          fetch-depth: 0
++          token: ${{ secrets.AUTO_PUSH || github.token }}
++
++      - name: Configure Git user
++        run: |
++          git config user.name "github-actions[bot]"
++          git config user.email "github-actions[bot]@users.noreply.github.com"
++
++      - name: Build site (placeholder)
++        run: |
++          echo "Adicione aqui os comandos necessários para gerar arquivos do site, se houver."
++          echo "Por exemplo: npm ci && npm run build"
++
++      - name: Commit and push changes
++        run: |
++          if [[ -n "$(git status --porcelain)" ]]; then
++            git add -A
++            git commit -m "chore: apply automated updates"
++            git push
++          else
++            echo "Nenhuma alteração para publicar."
++          fi
+ 
+EOF
+)
