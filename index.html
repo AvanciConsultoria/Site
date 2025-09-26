@@ -110,241 +110,270 @@
     .hint{font-size:12px; color:#6b7280}
 
     /* Footer */
-    footer{background:#0A2342; color:#cbd5e1; padding:36px 0}
-    .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:26px}
-    .footer-brand{display:flex; align-items:center; gap:12px; color:#fff}
-    .small{font-size:13px}
+    footer{background:#0A2342; color:#e2e8f0; padding:36px 0}
+    .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:36px; align-items:start}
+    .footer-brand{display:flex; align-items:center; gap:12px}
+    .small{font-size:14px; color:#cbd5f5}
+    .mt-0{margin-top:0}
+    .mt-8{margin-top:8px}
+    .mt-16{margin-top:16px}
 
-    /* Utils */
-    .mt-0{margin-top:0} .mb-0{margin-bottom:0} .mt-8{margin-top:8px} .mt-16{margin-top:16px} .mt-24{margin-top:24px}
-    .center{text-align:center}
-
-    /* Responsive */
-    @media (max-width: 992px){
-      .hero-grid{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr 1fr}
+    /* Responsivo */
+    @media (max-width:960px){
+      .hero-grid{grid-template-columns:1fr; text-align:center}
+      .hero-grid .stats{justify-content:center}
       .contact{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr 1fr}
-      nav ul{display:none}
+      .footer-grid{grid-template-columns:1fr; text-align:center}
+      nav ul{display:none; position:absolute; top:64px; right:20px; background:#0a2342; padding:18px 22px; border-radius:16px; flex-direction:column; gap:18px; box-shadow:0 16px 30px rgba(0,0,0,.24)}
+      nav ul a{font-size:16px}
       .menu-toggle{display:inline-flex}
     }
-    @media (min-width: 993px){.menu-toggle{display:none}}
+    .menu-toggle{display:none; width:40px; height:40px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.08); align-items:center; justify-content:center; color:#fff}
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container nav">
-      <a href="#inicio" class="brand" aria-label="Avanci Consultoria - Início">
+      <a class="brand" href="#topo">
         <span class="brand-logo" aria-hidden="true">
-          <!-- Marca A + raio (SVG simples) -->
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M25 48L36 16h11l-9 22h10L25 48Z" fill="var(--orange)"/>
-          </svg>
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 48L36 16h11l-9 22h10L25 48Z" fill="#F5A623"/></svg>
         </span>
-        <span class="brand-text">Avanci <span style="opacity:.75;font-weight:600">Consultoria</span></span>
+        <span class="brand-text">Avanci Consultoria</span>
       </a>
 
-      <button class="btn btn-ghost menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
-      <nav id="menu" aria-label="Navegação principal">
+      <button class="menu-toggle" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M3 5h14v2H3V5Zm0 4h14v2H3V9Zm0 4h14v2H3v-2Z"/></svg>
+      </button>
+
+      <nav id="menu">
         <ul>
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#diferenciais">Diferenciais</a></li>
-          <li><a href="#cases">Cases</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
+
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="#contato">Fale conosco</a>
-        <a class="btn btn-primary" href="#contato">Solicitar proposta</a>
+        <a class="btn btn-ghost" href="#contato">Contato</a>
+        <a class="btn btn-primary" href="https://wa.me/5541999999999" target="_blank" rel="noopener">Fale pelo WhatsApp</a>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="inicio" class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow">Consultoria em Engenharia Elétrica</span>
-        <h1 class="h1">Energia <span class="accent">com inteligência</span> para seus projetos</h1>
-        <p class="lead">Estudos de proteção e seletividade, comissionamento, operação &amp; manutenção (O&amp;M) de usinas, subestações de alta/extra-alta tensão e auditorias técnicas com conformidade ABNT/ANEEL.</p>
-        <div class="nav-cta">
-          <a href="#contato" class="btn btn-primary" aria-label="Abrir formulário de contato">Começar um projeto</a>
-          <a href="#servicos" class="btn btn-ghost" aria-label="Ir para a seção de serviços">Conheça os serviços</a>
-        </div>
-        <div class="stats">
-          <div class="stat"><b>22+ anos</b><br/><span class="small">de experiência</span></div>
-          <div class="stat"><b>750+ MWp</b><br/><span class="small">em GD e GC</span></div>
-          <div class="stat"><b>100%</b><br/><span class="small">compliance ABNT</span></div>
-        </div>
-      </div>
-      <div class="hero-card">
-        <h3 class="mt-0" style="color:#fff">Como podemos ajudar?</h3>
-        <p style="color:#d0dcff">Descreva seu desafio e receba um diagnóstico técnico gratuito.</p>
-        <ul style="margin:0; padding-left:18px; color:#e5ecff; line-height:1.7">
-          <li>Estudos de coordenação, curto-circuito, fluxo de cargas, arc flash</li>
-          <li>Comissionamento e Start-up de subestações e usinas FV</li>
-          <li>Planos de O&amp;M, inspeções e diagnósticos de performance</li>
-          <li>Due diligence técnica e laudos para investidores</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Serviços -->
-  <section id="servicos">
-    <div class="container">
-      <h2 class="section-title">Serviços</h2>
-      <p class="section-sub">Projetos e consultoria ponta-a-ponta, com rigor técnico, segurança e foco em resultados.</p>
-      <div class="grid grid-3">
-        <article class="card">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
-          </span>
-          <h3>Estudos elétricos</h3>
-          <p>Curto-circuito, fluxo de potência, coordenação e seletividade, arco elétrico, qualidade de energia e transitórios. Relatórios em conformidade ABNT/IEC.</p>
-        </article>
-        <article class="card">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16v10H4z"/><path d="M8 7V4h8v3"/></svg>
-          </span>
-          <h3>Subestações &amp; Alta Tensão</h3>
-          <p>Comissionamento, testes (TC/TP/Disjuntores/Transformadores), parametrização de IEDs, energização assistida e prontuários NR10/NR12.</p>
-        </article>
-        <article class="card">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16M4 12h16M4 16h10"/></svg>
-          </span>
-          <h3>O&amp;M de Usinas Fotovoltaicas</h3>
-          <p>Planos de manutenção, inspeções termográficas, KPIs de performance, análise PR, troubleshooting de inversores e mitigação de riscos.</p>
-        </article>
-        <article class="card">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 18L18 6M6 6l12 12"/></svg>
-          </span>
-          <h3>Auditorias &amp; Due Diligence</h3>
-          <p>Avaliação técnica para M&amp;A e financiamento. Verificação de conformidade regulatória (ANEEL), laudos e recomendações executáveis.</p>
-        </article>
-        <article class="card">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11h18M7 3h10v6H7zM7 15h10v6H7z"/></svg>
-          </span>
-          <h3>Projetos &amp; As Built</h3>
-          <p>Projetos executivos, BIM, memoriais de cálculo, especificações técnicas e documentação conforme ABNT NBR 16690 e correlatas.</p>
-        </article>
-        <article class="card">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg>
-          </span>
-          <h3>Treinamentos Corporativos</h3>
-          <p>Capacitação prática para equipes de engenharia, operação e manutenção. Conteúdo customizado e certificação.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Diferenciais -->
-  <section id="diferenciais">
-    <div class="container">
-      <h2 class="section-title">Por que a Avanci?</h2>
-      <p class="section-sub">Experiência de campo, metodologia robusta e foco em performance.</p>
-      <div class="grid grid-3">
-        <div class="card">
-          <span class="pill">Resposta em até 24h</span>
-          <h3 class="mt-16">Agilidade com método</h3>
-          <p>SLAs de atendimento e cronogramas claros do diagnóstico à entrega final.</p>
-        </div>
-        <div class="card">
-          <span class="pill">Compliance ABNT/ANEEL</span>
-          <h3 class="mt-16">Rigor técnico</h3>
-          <p>Documentos auditáveis, rastreáveis e alinhados às normas e boas práticas.</p>
-        </div>
-        <div class="card">
-          <span class="pill">Dados &amp; KPIs</span>
-          <h3 class="mt-16">Decisão baseada em evidências</h3>
-          <p>Dashboards e relatórios orientados a indicadores de disponibilidade e PR.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cases / Clientes -->
-  <section id="cases">
-    <div class="container">
-      <h2 class="section-title">Clientes &amp; Cases</h2>
-      <p class="section-sub">Alguns parceiros e projetos atendidos (amostras representativas).</p>
-      <div class="logos">
-        <div class="logo-badge">Cliente A</div>
-        <div class="logo-badge">Cliente B</div>
-        <div class="logo-badge">Cliente C</div>
-        <div class="logo-badge">Cliente D</div>
-        <div class="logo-badge">Cliente E</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sobre -->
-  <section id="sobre">
-    <div class="container">
-      <h2 class="section-title">Sobre a Avanci Consultoria</h2>
-      <div class="about">
-        <p class="mt-0">Somos uma consultoria de engenharia elétrica com atuação em todo o Brasil, especializada em estudos elétricos, comissionamento, O&amp;M de usinas fotovoltaicas e subestações, auditorias e treinamentos. Unimos <b>precisão técnica</b> e <b>visão de negócios</b> para acelerar resultados de empreendimentos de energia.</p>
-        <ul style="line-height:1.9; margin-top:8px">
-          <li>Equipe com experiência prática em campo e projetos de grande porte</li>
-          <li>Entregáveis padronizados e auditáveis, prontos para investidores e financiadores</li>
-          <li>Atuação integrada com EPCs, O&amp;Ms, utilities e indústrias</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contato -->
-  <section id="contato">
-    <div class="container">
-      <h2 class="section-title">Entre em contato</h2>
-      <p class="section-sub">Conte-nos sobre seu projeto. Retornamos em até 24h úteis.</p>
-      <div class="contact">
-        <form name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contato" />
-          <p style="display:none"><label>Não preencha: <input name="bot-field" /></label></p>
-
-          <label for="nome">Nome</label>
-          <input id="nome" name="nome" autocomplete="name" required />
-
-          <label for="email">E-mail</label>
-          <input id="email" name="email" type="email" autocomplete="email" required />
-
-          <label for="telefone">Telefone</label>
-          <input id="telefone" name="telefone" type="tel" autocomplete="tel" />
-
-          <label for="assunto">Assunto</label>
-          <input id="assunto" name="assunto" placeholder="Ex.: Estudo de proteção para SE 138 kV" required />
-
-          <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" placeholder="Descreva brevemente o desafio e o prazo desejado" required></textarea>
-
-          <p class="hint">Ao enviar, você concorda com o tratamento dos seus dados para retorno comercial.</p>
-          <button class="btn btn-primary" type="submit">Enviar</button>
-        </form>
-
+  <main id="topo">
+    <section class="hero">
+      <div class="container hero-grid">
         <div>
-          <div class="card">
-            <h3 class="mt-0">Canais</h3>
-            <p class="mt-8"><b>E-mail</b><br><a href="mailto:contato@avanciconsultoria.com.br">contato@avanciconsultoria.com.br</a></p>
-            <p class="mt-8"><b>Telefone</b><br><a href="tel:+5541999999999">+55 (41) 99999-9999</a></p>
-            <p class="mt-8"><b>Endereço</b><br>Curitiba — PR, Brasil</p>
-            <p class="mt-8 small">Atendemos Brasil e LATAM. Reuniões online ou presenciais sob agendamento.</p>
+          <span class="eyebrow">ENGENHARIA ELÉTRICA</span>
+          <h1 class="h1">Energia com <span class="accent">inteligência</span> para seu projeto industrial</h1>
+          <p class="lead">Consultoria especializada em estudos de proteção, comissionamento e operação de sistemas elétricos de potência. Atuamos com foco em confiabilidade, segurança e retorno sobre o investimento.</p>
+
+          <div class="stats">
+            <div class="stat">
+              <b>15+ anos</b>
+              <p>de experiência em utilities e geração</p>
+            </div>
+            <div class="stat">
+              <b>120 MW</b>
+              <p>em usinas eólicas e solares acompanhadas</p>
+            </div>
+            <div class="stat">
+              <b>95%</b>
+              <p>dos clientes retornam com novos projetos</p>
+            </div>
           </div>
-          <div class="card mt-16">
-            <h3 class="mt-0">Documentos e Portfólio</h3>
-            <p class="mt-8">Baixe a apresentação institucional e cases resumidos.</p>
-            <a class="btn btn-ghost" href="#" aria-disabled="true">Baixar PDF (em breve)</a>
+
+          <div class="mt-16">
+            <a class="btn btn-primary" href="#contato">Agendar diagnóstico</a>
+            <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h2 class="mt-0">Soluções para cada fase</h2>
+          <p>Da concepção ao comissionamento, mapeamos riscos, desenhamos proteções e entregamos energia segura.</p>
+          <div class="mt-16 pill">
+            <span class="icon" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="#0A2342" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h16M4 12h16M4 17h16"/><path d="M8 3h8v2H8zM8 19h8v2H8z"/></svg>
+            </span>
+            <span>Planos personalizados por indústria</span>
+          </div>
+          <div class="mt-16 pill">
+            <span class="icon" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="#0A2342" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="m4 12 5 5 11-11"/></svg>
+            </span>
+            <span>Equipe com certificações CREA e NR-10</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos">
+      <div class="container">
+        <h2 class="section-title">Serviços especializados</h2>
+        <p class="section-sub">Suporte completo para plantas industriais, usinas de geração e subestações.</p>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M4 17V7l10-4 10 4v10l-10 4-10-4Z"/><path d="m14 11 10-4M4 7l10 4m0 0v10"/></svg>
+            </span>
+            <h3>Estudos de proteção</h3>
+            <p>Ajustes finos, coordenação e análise de curto-circuito em softwares líderes de mercado.</p>
+          </article>
+
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M5 20v-9l9-5 9 5v9l-9 5-9-5Z"/><path d="M5 11 14 6l9 5M14 27V17"/></svg>
+            </span>
+            <h3>Comissionamento</h3>
+            <p>Procedimentos completos, testes SAT/FAT, parametrização de IEDs e treinamento de equipes.</p>
+          </article>
+
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="m4 22 3-9h6l3 9"/><path d="m7 13 3-9h4l3 9"/></svg>
+            </span>
+            <h3>O&M de usinas</h3>
+            <p>Planos de manutenção, gestão de indicadores e suporte remoto 24/7 para disponibilidade máxima.</p>
+          </article>
+
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M7 19h14v4H7z"/><path d="M4 23h20M11 7l3-3 3 3M14 4v15"/></svg>
+            </span>
+            <h3>Integração de geração distribuída</h3>
+            <p>Projetos solares, eólicos e híbridos com foco em performance e conformidade regulatória.</p>
+          </article>
+
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M6 10h16v12H6z"/><path d="M10 6h4v4h-4zM14 6h4v4h-4zM10 22h4v4h-4zM14 22h4v4h-4z"/></svg>
+            </span>
+            <h3>Digitalização e automação</h3>
+            <p>Projetos SCADA, teleproteção e integração com sistemas corporativos.</p>
+          </article>
+
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h18v10H5z"/><path d="M9 6h10v6H9zM9 22h10v6H9z"/></svg>
+            </span>
+            <h3>Consultoria regulatória</h3>
+            <p>Suporte em pareceres técnicos, artefatos para ANEEL/ONS e due diligence de ativos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section id="diferenciais">
+      <div class="container">
+        <h2 class="section-title">Por que a Avanci?</h2>
+        <p class="section-sub">Aliamos engenharia de ponta a uma gestão próxima e transparente.</p>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Engenharia aplicada</h3>
+            <p>Experiência prática em campo comissionando equipamentos de média e alta tensão.</p>
+          </article>
+          <article class="card">
+            <h3>Metodologia ágil</h3>
+            <p>Projetos conduzidos com sprints semanais, entregas incrementais e visibilidade total.</p>
+          </article>
+          <article class="card">
+            <h3>Compliance e segurança</h3>
+            <p>Atuação conforme NR-10, NR-12, IEC 61850 e demais normas do setor elétrico.</p>
+          </article>
+        </div>
+
+        <div class="mt-16 logos">
+          <span class="logo-badge">Clientes industriais</span>
+          <span class="logo-badge">Utilities</span>
+          <span class="logo-badge">Concessionárias</span>
+          <span class="logo-badge">EPCistas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre">
+      <div class="container">
+        <h2 class="section-title">Sobre a consultoria</h2>
+        <p class="section-sub">A Avanci Consultoria foi fundada em 2015 para entregar energia segura e eficiente.</p>
+
+        <div class="about">
+          <p>Somos engenheiros apaixonados por sistemas elétricos de potência. Atuamos em projetos em todo o Brasil, com foco em geração renovável, indústrias eletrointensivas e concessões de distribuição.</p>
+          <p>Nossa abordagem combina análise técnica aprofundada, ferramentas digitais e um relacionamento próximo com o cliente, garantindo decisões embasadas e resultados consistentes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="container">
+        <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;">
+          <div>
+            <h2 class="section-title" style="margin-bottom:6px;">Pronto para acelerar seu projeto?</h2>
+            <p class="section-sub" style="margin-bottom:0;">Agende uma conversa inicial gratuita para mapear oportunidades e riscos.</p>
+          </div>
+          <a class="btn btn-primary" href="https://cal.com" target="_blank" rel="noopener">Agendar diagnóstico</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+      <div class="container">
+        <h2 class="section-title">Fale com a nossa equipe</h2>
+        <p class="section-sub">Responderemos em até 24h úteis.</p>
+
+        <div class="contact">
+          <form name="contato" method="POST" data-netlify="true" action="/#enviado">
+            <input type="hidden" name="form-name" value="contato" />
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" placeholder="Seu nome completo" required />
+
+            <label for="empresa">Empresa</label>
+            <input id="empresa" name="empresa" placeholder="Nome da empresa" />
+
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder="nome@empresa.com" required />
+
+            <label for="telefone">Telefone</label>
+            <input id="telefone" name="telefone" type="tel" autocomplete="tel" />
+
+            <label for="assunto">Assunto</label>
+            <input id="assunto" name="assunto" placeholder="Ex.: Estudo de proteção para SE 138 kV" required />
+
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Descreva brevemente o desafio e o prazo desejado" required></textarea>
+
+            <p class="hint">Ao enviar, você concorda com o tratamento dos seus dados para retorno comercial.</p>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+          </form>
+
+          <div>
+            <div class="card">
+              <h3 class="mt-0">Canais</h3>
+              <p class="mt-8"><b>E-mail</b><br><a href="mailto:contato@avanciconsultoria.com.br">contato@avanciconsultoria.com.br</a></p>
+              <p class="mt-8"><b>Telefone</b><br><a href="tel:+5541999999999">+55 (41) 99999-9999</a></p>
+              <p class="mt-8"><b>Endereço</b><br>Curitiba — PR, Brasil</p>
+              <p class="mt-8 small">Atendemos Brasil e LATAM. Reuniões online ou presenciais sob agendamento.</p>
+            </div>
+            <div class="card mt-16">
+              <h3 class="mt-0">Documentos e Portfólio</h3>
+              <p class="mt-8">Baixe a apresentação institucional e cases resumidos.</p>
+              <a class="btn btn-ghost" href="#" aria-disabled="true">Baixar PDF (em breve)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
