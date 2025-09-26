@@ -4,7 +4,7 @@ index 0000000000000000000000000000000000000000..cc4920d9ef80469a5c5c66f4d9f57e37
 --- a//dev/null
 +++ b/.github/workflows/auto-push.yml
 @@ -0,0 +1,40 @@
-+name: Auto Push
++name: AUTO_PUSH
 +
 +on:
 +  workflow_dispatch:
