@@ -1,10 +1,4 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a//dev/null b/.github/workflows/auto-push.yml
-index 0000000000000000000000000000000000000000..cc4920d9ef80469a5c5c66f4d9f57e37f9472cc8 100644
---- a//dev/null
-+++ b/.github/workflows/auto-push.yml
-@@ -0,0 +1,40 @@
-+name: auto-push
++name: Auto Push
 +
 +on:
 +  workflow_dispatch:
@@ -44,6 +38,4 @@ index 0000000000000000000000000000000000000000..cc4920d9ef80469a5c5c66f4d9f57e37
 +          else
 +            echo "Nenhuma alteração para publicar."
 +          fi
- 
-EOF
-)
+
