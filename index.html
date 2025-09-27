@@ -1,191 +1,635 @@
 diff --git a/index.html b/index.html
-index 6f4c346992a5b2efcae4b732f1beb5ab72347996..05c7fa9cd5c45f1fd7b93a4bdccfe29c88e8d81a 100644
+index 6f4c346992a5b2efcae4b732f1beb5ab72347996..564f0fd69e27348b77b0fdfd39710f97a46038b1 100644
 --- a/index.html
 +++ b/index.html
-@@ -26,140 +26,150 @@
-       --paper:#ffffff;      /* superfícies */
-       --ink:#0f172a;        /* texto principal */
-       --cloud:#F3F6FA;      /* fundo claro */
-       --radius:18px;        /* raios de borda */
-       --maxw:1200px;        /* largura máxima */
-       --shadow:0 10px 30px rgba(10,35,66,.12);
-     }
-     *{box-sizing:border-box}
-     html{scroll-behavior:smooth}
-     body{
-       margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+@@ -1,466 +1,812 @@
+ <!doctype html>
+ <html lang="pt-BR">
+ <head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>Avanci Consultoria — Energia com inteligência</title>
+-  <meta name="description" content="Consultoria em engenharia elétrica: estudos de proteção, comissionamento, O&M de usinas, subestações e soluções com energia e inteligência." />
++  <meta name="description" content="A Avanci Consultoria entrega engenharia elétrica estratégica: proteção, comissionamento, operação e automação de sistemas de potência." />
+   <meta name="author" content="Avanci Consultoria" />
+-  <meta name="theme-color" content="#0A2342" />
++  <meta name="theme-color" content="#061B3A" />
++
+   <!-- Open Graph -->
+   <meta property="og:title" content="Avanci Consultoria — Energia com inteligência" />
+-  <meta property="og:description" content="Engenharia elétrica com precisão, segurança e foco em resultados." />
++  <meta property="og:description" content="Energia segura, eficiente e inteligente para indústrias, utilities e projetos de geração." />
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://www.avanciconsultoria.com.br" />
+-  <meta property="og:image" content="/img/og-cover.jpg" />
++  <meta property="og:image" content="https://www.avanciconsultoria.com.br/img/og-cover.jpg" />
++
+   <!-- Fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
++
+   <style>
+-    :root{
+-      --navy:#0A2342;       /* fundo principal */
+-      --graphite:#333333;   /* texto escuro */
+-      --orange:#F5A623;     /* destaque */
+-      --muted:#6B7280;      /* texto secundário */
+-      --paper:#ffffff;      /* superfícies */
+-      --ink:#0f172a;        /* texto principal */
+-      --cloud:#F3F6FA;      /* fundo claro */
+-      --radius:18px;        /* raios de borda */
+-      --maxw:1200px;        /* largura máxima */
+-      --shadow:0 10px 30px rgba(10,35,66,.12);
+-    }
+-    *{box-sizing:border-box}
+-    html{scroll-behavior:smooth}
+-    body{
+-      margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
++    :root {
++      --navy:#061B3A;
++      --deep:#041128;
++      --ink:#0F172A;
++      --muted:#5B6B87;
++      --orange:#F5A623;
++      --cream:#F9FBFF;
++      --paper:#FFFFFF;
++      --radius:18px;
++      --shadow:0 22px 40px rgba(6,27,58,.18);
++      --maxw:1180px;
++    }
++    * { box-sizing:border-box; }
++    html { scroll-behavior:smooth; }
++    body {
++      margin:0;
++      font-family:Montserrat,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
        color:var(--ink);
-       background:linear-gradient(180deg,#0A2342 0%, #0A2342 22%, #F3F6FA 22.1%, #F3F6FA 100%);
+-      background:linear-gradient(180deg,#0A2342 0%, #0A2342 22%, #F3F6FA 22.1%, #F3F6FA 100%);
++      background:linear-gradient(160deg,#061B3A 0%,#061B3A 36%,#0A2650 36.2%,#0A2650 48%,#F3F6FB 48.1%,#F3F6FB 100%);
      }
-     a{color:inherit; text-decoration:none}
-     img{max-width:100%; display:block}
-     .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+-    a{color:inherit; text-decoration:none}
+-    img{max-width:100%; display:block}
+-    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
++    a { color:inherit; text-decoration:none; }
++    img { max-width:100%; display:block; }
++    .container { max-width:var(--maxw); margin:0 auto; padding:0 24px; }
  
      /* Header */
-     header{
-       position:sticky; top:0; z-index:50;
-       backdrop-filter:saturate(180%) blur(14px);
-       background:rgba(10,35,66,.78); border-bottom:1px solid rgba(255,255,255,.08);
-     }
-     .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+-    header{
+-      position:sticky; top:0; z-index:50;
+-      backdrop-filter:saturate(180%) blur(14px);
+-      background:rgba(10,35,66,.78); border-bottom:1px solid rgba(255,255,255,.08);
+-    }
+-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
 -    .brand{display:flex; align-items:center; gap:12px; color:#fff; font-weight:700; letter-spacing:.3px}
 -    .brand-logo{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:12px; background:rgba(255,255,255,.06); box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
 -    .brand-logo svg{width:26px; height:26px}
 -    .brand-text{font-size:18px}
-+    .brand{display:flex; align-items:center; gap:14px; color:#fff; font-weight:700; letter-spacing:.3px}
-+    .brand-logo{display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:16px; background:linear-gradient(140deg, rgba(255,255,255,.18), rgba(255,255,255,.06)); border:1px solid rgba(255,255,255,.28); box-shadow:0 14px 28px rgba(10,35,66,.38); overflow:hidden}
-+    .brand-logo img{width:100%; height:100%; object-fit:cover}
-+    .brand-text{font-size:16px; letter-spacing:.18em; text-transform:uppercase}
-     nav ul{list-style:none; display:flex; gap:26px; margin:0; padding:0}
-     nav a{color:#e5ecff; font-weight:500; opacity:.9}
-     nav a:hover{opacity:1}
-     .nav-cta{display:flex; align-items:center; gap:10px}
+-    nav ul{list-style:none; display:flex; gap:26px; margin:0; padding:0}
+-    nav a{color:#e5ecff; font-weight:500; opacity:.9}
+-    nav a:hover{opacity:1}
+-    .nav-cta{display:flex; align-items:center; gap:10px}
++    header {
++      position:sticky;
++      top:0;
++      z-index:80;
++      background:rgba(6,27,58,.82);
++      backdrop-filter:saturate(180%) blur(18px);
++      border-bottom:1px solid rgba(255,255,255,.12);
++    }
++    .nav {
++      display:flex;
++      align-items:center;
++      justify-content:space-between;
++      padding:18px 0;
++      gap:22px;
++    }
++    .brand {
++      display:flex;
++      align-items:center;
++      gap:16px;
++      color:#fff;
++      font-weight:700;
++      letter-spacing:.24em;
++      text-transform:uppercase;
++    }
++    .brand-mark {
++      width:60px;
++      height:60px;
++      border-radius:20px;
++      display:grid;
++      place-items:center;
++      background:linear-gradient(140deg,rgba(255,255,255,.2),rgba(255,255,255,.02));
++      border:1px solid rgba(255,255,255,.35);
++      box-shadow:0 16px 36px rgba(0,0,0,.35);
++      overflow:hidden;
++    }
++    .brand-mark img { width:100%; height:100%; object-fit:cover; }
++    nav ul {
++      list-style:none;
++      display:flex;
++      gap:30px;
++      margin:0;
++      padding:0;
++    }
++    nav a { color:#E0ECFF; font-weight:500; opacity:.92; }
++    nav a:hover { opacity:1; }
++    .nav-actions { display:flex; align-items:center; gap:16px; }
++    .menu-toggle {
++      display:none;
++      width:44px;
++      height:44px;
++      border-radius:14px;
++      border:1px solid rgba(255,255,255,.2);
++      background:rgba(255,255,255,.08);
++      color:#fff;
++      align-items:center;
++      justify-content:center;
++    }
  
      /* Buttons */
-     .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; font-weight:600; padding:12px 18px; border-radius:999px; border:1px solid transparent; transition:transform .06s ease, box-shadow .2s ease, background .2s ease; cursor:pointer}
-     .btn:active{transform:translateY(1px)}
-     .btn-primary{background:var(--orange); color:#1b1b1b; box-shadow:0 6px 18px rgba(245,166,35,.35)}
-     .btn-primary:hover{filter:saturate(1.05) brightness(1.02)}
-     .btn-ghost{background:transparent; color:#fff; border-color:rgba(255,255,255,.25)}
-     .btn-ghost:hover{background:rgba(255,255,255,.08)}
+-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; font-weight:600; padding:12px 18px; border-radius:999px; border:1px solid transparent; transition:transform .06s ease, box-shadow .2s ease, background .2s ease; cursor:pointer}
+-    .btn:active{transform:translateY(1px)}
+-    .btn-primary{background:var(--orange); color:#1b1b1b; box-shadow:0 6px 18px rgba(245,166,35,.35)}
+-    .btn-primary:hover{filter:saturate(1.05) brightness(1.02)}
+-    .btn-ghost{background:transparent; color:#fff; border-color:rgba(255,255,255,.25)}
+-    .btn-ghost:hover{background:rgba(255,255,255,.08)}
++    .btn {
++      display:inline-flex;
++      align-items:center;
++      justify-content:center;
++      gap:10px;
++      border-radius:999px;
++      padding:12px 22px;
++      font-weight:600;
++      border:1px solid transparent;
++      transition:transform .08s ease,box-shadow .2s ease,background .2s ease;
++      cursor:pointer;
++    }
++    .btn:active { transform:translateY(1px); }
++    .btn-primary { background:var(--orange); color:#1A1A1A; box-shadow:0 12px 24px rgba(245,166,35,.35); }
++    .btn-primary:hover { filter:brightness(1.05); }
++    .btn-ghost { background:rgba(255,255,255,.06); color:#fff; border-color:rgba(255,255,255,.22); }
++    .btn-ghost:hover { background:rgba(255,255,255,.18); }
++    .btn-secondary { background:#fff; color:var(--navy); border-color:#fff; box-shadow:0 16px 30px rgba(10,32,71,.16); }
  
      /* Hero */
-     .hero{color:#fff; padding:86px 0 92px}
-     .hero-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center}
-     .eyebrow{display:inline-block; font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:#c5d3ff; margin-bottom:14px}
-     .h1{font-size:46px; line-height:1.1; margin:0 0 16px; font-weight:800}
-     .h1 .accent{color:var(--orange)}
-     .lead{font-size:18px; line-height:1.6; color:#dce6ff; margin:0 0 28px}
-     .stats{display:flex; gap:20px; flex-wrap:wrap; margin-top:18px}
-     .stat{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); padding:12px 16px; border-radius:14px; min-width:160px}
-     .stat b{font-size:20px; color:#fff}
+-    .hero{color:#fff; padding:86px 0 92px}
+-    .hero-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center}
+-    .eyebrow{display:inline-block; font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:#c5d3ff; margin-bottom:14px}
+-    .h1{font-size:46px; line-height:1.1; margin:0 0 16px; font-weight:800}
+-    .h1 .accent{color:var(--orange)}
+-    .lead{font-size:18px; line-height:1.6; color:#dce6ff; margin:0 0 28px}
+-    .stats{display:flex; gap:20px; flex-wrap:wrap; margin-top:18px}
+-    .stat{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); padding:12px 16px; border-radius:14px; min-width:160px}
+-    .stat b{font-size:20px; color:#fff}
 -    .hero-card{background:#0d2a54; border:1px solid rgba(255,255,255,.12); padding:24px; border-radius:var(--radius); box-shadow:var(--shadow)}
-+    .hero-highlight{background:linear-gradient(150deg, rgba(10,35,66,.95) 0%, rgba(7,25,48,.96) 55%, rgba(8,30,60,.88) 100%); border:1px solid rgba(255,255,255,.14); border-radius:var(--radius); padding:32px; box-shadow:0 24px 52px rgba(10,35,66,.28); color:#f5f9ff; display:grid; gap:24px; text-align:left}
-+    .hero-logo-lockup{display:flex; justify-content:center; background:radial-gradient(circle at 30% 20%, rgba(245,166,35,.38), transparent 60%); border-radius:24px; padding:18px}
-+    .hero-logo-lockup img{width:240px; max-width:100%; filter:drop-shadow(0 26px 50px rgba(245,166,35,.28))}
-+    .hero-highlight h2{margin:0; font-size:28px; font-weight:700; color:#fff}
-+    .hero-highlight-lead{margin:0; color:#d9e7ff; line-height:1.6; font-size:17px}
-+    .hero-badges{display:grid; gap:12px}
-+    .hero-badge{display:flex; gap:12px; align-items:flex-start; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); border-radius:16px; padding:14px 16px}
-+    .hero-badge svg{width:22px; height:22px; flex-shrink:0; color:var(--orange)}
-+    .hero-badge span{color:#ecf2ff; font-size:15px; line-height:1.5}
++    .hero {
++      color:#fff;
++      padding:110px 0 120px;
++    }
++    .hero-grid {
++      display:grid;
++      grid-template-columns:1.1fr 0.9fr;
++      gap:60px;
++      align-items:center;
++    }
++    .eyebrow {
++      display:inline-flex;
++      align-items:center;
++      gap:10px;
++      font-size:12px;
++      letter-spacing:.3em;
++      text-transform:uppercase;
++      color:#B9C9FF;
++      margin-bottom:20px;
++    }
++    .eyebrow::before {
++      content:"";
++      display:inline-block;
++      width:36px;
++      height:1px;
++      background:rgba(185,201,255,.4);
++    }
++    .h1 {
++      margin:0 0 20px;
++      font-size:48px;
++      line-height:1.08;
++      font-weight:800;
++    }
++    .h1 .accent { color:var(--orange); }
++    .lead { font-size:19px; line-height:1.62; color:#D8E6FF; margin:0 0 32px; max-width:520px; }
++    .stats { display:flex; gap:20px; flex-wrap:wrap; }
++    .stat {
++      min-width:170px;
++      background:rgba(255,255,255,.08);
++      border:1px solid rgba(255,255,255,.16);
++      border-radius:16px;
++      padding:16px 18px;
++    }
++    .stat strong { font-size:26px; display:block; color:#fff; }
++    .stat span { color:#BFD3FF; font-size:14px; }
++
++    .hero-card {
++      position:relative;
++      background:linear-gradient(150deg,rgba(6,27,58,.96) 0%,rgba(6,27,58,.85) 60%,rgba(12,42,89,.9) 100%);
++      border-radius:30px;
++      padding:36px;
++      border:1px solid rgba(255,255,255,.18);
++      box-shadow:var(--shadow);
++      overflow:hidden;
++    }
++    .hero-card::after {
++      content:"";
++      position:absolute;
++      inset:auto -30% -35% -30%;
++      height:220px;
++      background:radial-gradient(circle at 50% 50%,rgba(245,166,35,.36),transparent 70%);
++      z-index:0;
++    }
++    .logo-badge {
++      position:relative;
++      z-index:1;
++      display:grid;
++      place-items:center;
++      padding:24px;
++      border-radius:26px;
++      background:rgba(255,255,255,.06);
++      border:1px solid rgba(255,255,255,.12);
++      margin-bottom:28px;
++    }
++    .logo-badge img {
++      width:260px;
++      filter:drop-shadow(0 32px 42px rgba(245,166,35,.35));
++    }
++    .hero-card h2 {
++      position:relative;
++      z-index:1;
++      margin:0 0 18px;
++      font-size:28px;
++      font-weight:700;
++      color:#fff;
++    }
++    .hero-card p {
++      position:relative;
++      z-index:1;
++      color:#E7F0FF;
++      font-size:17px;
++      line-height:1.6;
++      margin:0 0 24px;
++    }
++    .hero-highlights {
++      position:relative;
++      z-index:1;
++      display:grid;
++      gap:14px;
++    }
++    .hero-highlight {
++      display:flex;
++      align-items:flex-start;
++      gap:14px;
++      background:rgba(255,255,255,.08);
++      border:1px solid rgba(255,255,255,.18);
++      border-radius:16px;
++      padding:14px 16px;
++      color:#F1F6FF;
++      font-size:15px;
++      line-height:1.5;
++    }
++    .hero-highlight svg { width:22px; height:22px; flex-shrink:0; color:var(--orange); }
  
      /* Sections */
-     section{padding:80px 0}
-     .section-title{font-size:32px; margin:0 0 10px; font-weight:800; color:#0A2342}
-     .section-sub{color:var(--muted); margin-bottom:34px}
- 
-     /* Cards e grids */
-     .grid{display:grid; gap:22px}
-     .grid-3{grid-template-columns:repeat(3, 1fr)}
-     .card{background:var(--paper); border:1px solid #e7eef7; border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); transition:transform .15s ease, box-shadow .2s}
-     .card:hover{transform:translateY(-2px); box-shadow:0 16px 38px rgba(10,35,66,.12)}
-     .card h3{margin:8px 0 8px; font-size:20px; color:var(--navy)}
-     .card p{margin:0; color:#475569}
-     .icon{width:28px; height:28px; display:inline-flex}
- 
-     /* Chips/Destaques */
-     .pill{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; background:#fff; border:1px solid #e7eef7; box-shadow:var(--shadow)}
- 
-     /* Logos/Clientes */
-     .logos{display:flex; gap:24px; flex-wrap:wrap; align-items:center}
-     .logo-badge{height:40px; width:140px; background:#fff; border:1px solid #e6eaf1; border-radius:12px; display:grid; place-items:center; color:#64748b}
- 
-     /* Sobre */
-     .about{background:#fff; border:1px solid #e7eef7; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
- 
-     /* Contato */
-     .contact{display:grid; grid-template-columns:1fr 1fr; gap:26px}
-     form{background:#fff; border:1px solid #e7eef7; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
-     label{display:block; font-weight:600; font-size:14px; margin:8px 0 6px; color:#0A2342}
-     input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid #d7deea; background:#f9fbfe; font-family:inherit; font-size:15px}
-     textarea{min-height:140px; resize:vertical}
-     .hint{font-size:12px; color:#6b7280}
+-    section{padding:80px 0}
+-    .section-title{font-size:32px; margin:0 0 10px; font-weight:800; color:#0A2342}
+-    .section-sub{color:var(--muted); margin-bottom:34px}
+-
+-    /* Cards e grids */
+-    .grid{display:grid; gap:22px}
+-    .grid-3{grid-template-columns:repeat(3, 1fr)}
+-    .card{background:var(--paper); border:1px solid #e7eef7; border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); transition:transform .15s ease, box-shadow .2s}
+-    .card:hover{transform:translateY(-2px); box-shadow:0 16px 38px rgba(10,35,66,.12)}
+-    .card h3{margin:8px 0 8px; font-size:20px; color:var(--navy)}
+-    .card p{margin:0; color:#475569}
+-    .icon{width:28px; height:28px; display:inline-flex}
+-
+-    /* Chips/Destaques */
+-    .pill{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; background:#fff; border:1px solid #e7eef7; box-shadow:var(--shadow)}
+-
+-    /* Logos/Clientes */
+-    .logos{display:flex; gap:24px; flex-wrap:wrap; align-items:center}
+-    .logo-badge{height:40px; width:140px; background:#fff; border:1px solid #e6eaf1; border-radius:12px; display:grid; place-items:center; color:#64748b}
+-
+-    /* Sobre */
+-    .about{background:#fff; border:1px solid #e7eef7; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
+-
+-    /* Contato */
+-    .contact{display:grid; grid-template-columns:1fr 1fr; gap:26px}
+-    form{background:#fff; border:1px solid #e7eef7; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
+-    label{display:block; font-weight:600; font-size:14px; margin:8px 0 6px; color:#0A2342}
+-    input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid #d7deea; background:#f9fbfe; font-family:inherit; font-size:15px}
+-    textarea{min-height:140px; resize:vertical}
+-    .hint{font-size:12px; color:#6b7280}
++    main section { padding:90px 0; }
++    main section:nth-of-type(even) { background:#fff; }
++    .section-heading { text-align:center; margin-bottom:54px; }
++    .section-title { margin:0 0 16px; font-size:36px; font-weight:800; color:var(--navy); }
++    .section-sub { margin:0 auto; max-width:620px; color:var(--muted); font-size:17px; line-height:1.6; }
++
++    /* Services */
++    .grid { display:grid; gap:26px; }
++    .grid-3 { grid-template-columns:repeat(3,1fr); }
++    .service-card {
++      background:var(--paper);
++      border-radius:var(--radius);
++      border:1px solid #E1E9F6;
++      padding:28px;
++      box-shadow:0 18px 38px rgba(6,27,58,.08);
++      transition:transform .18s ease, box-shadow .2s ease;
++    }
++    .service-card:hover { transform:translateY(-4px); box-shadow:0 26px 52px rgba(6,27,58,.12); }
++    .service-card h3 { margin:18px 0 14px; font-size:22px; color:var(--navy); }
++    .service-card p { margin:0; color:#506080; line-height:1.6; }
++    .service-icon {
++      width:48px;
++      height:48px;
++      border-radius:14px;
++      display:grid;
++      place-items:center;
++      background:rgba(245,166,35,.16);
++      color:var(--orange);
++    }
++
++    /* Differentials */
++    .feature-grid { grid-template-columns:repeat(3,1fr); }
++    .feature-card {
++      background:#0E2347;
++      border-radius:var(--radius);
++      padding:26px;
++      color:#EFF5FF;
++      border:1px solid rgba(255,255,255,.12);
++      box-shadow:0 20px 45px rgba(6,27,58,.22);
++    }
++    .feature-card h3 { margin:0 0 12px; font-size:22px; color:#fff; }
++    .feature-card p { margin:0; line-height:1.6; color:#D0DFFF; }
++
++    /* Cases */
++    .cases { grid-template-columns:repeat(3,1fr); }
++    .case-card {
++      background:#fff;
++      border-radius:var(--radius);
++      border:1px solid #E0E9F8;
++      padding:26px;
++      display:grid;
++      gap:14px;
++      box-shadow:0 20px 40px rgba(10,32,71,.08);
++    }
++    .case-title { font-weight:700; font-size:20px; color:var(--navy); margin:0; }
++    .case-meta { font-size:14px; letter-spacing:.12em; color:#7C8AA3; text-transform:uppercase; }
++    .case-body { margin:0; color:#4C5A76; line-height:1.6; }
++
++    /* About */
++    .about-wrapper {
++      display:grid;
++      grid-template-columns:1fr 1fr;
++      gap:36px;
++      align-items:start;
++    }
++    .about-card {
++      background:#fff;
++      border-radius:var(--radius);
++      border:1px solid #E0E9F8;
++      padding:30px;
++      box-shadow:0 24px 48px rgba(6,27,58,.12);
++    }
++    .about-card h3 { margin:0 0 18px; font-size:24px; color:var(--navy); }
++    .about-card p { margin:0 0 16px; color:#4C5A76; line-height:1.6; }
++    .pill-list { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
++    .pill {
++      display:inline-flex;
++      align-items:center;
++      gap:10px;
++      padding:10px 16px;
++      border-radius:999px;
++      background:#F0F4FD;
++      color:#233352;
++      font-size:14px;
++      font-weight:600;
++    }
++
++    /* CTA */
++    .cta-card {
++      background:linear-gradient(120deg,#0B2245 0%,#153771 100%);
++      border-radius:var(--radius);
++      padding:46px;
++      color:#fff;
++      border:1px solid rgba(255,255,255,.16);
++      box-shadow:0 24px 48px rgba(6,27,58,.2);
++      display:flex;
++      align-items:center;
++      justify-content:space-between;
++      gap:28px;
++      flex-wrap:wrap;
++    }
++    .cta-card h2 { margin:0 0 10px; font-size:32px; }
++    .cta-card p { margin:0; color:#D7E6FF; max-width:540px; }
++
++    /* Contact */
++    .contact {
++      display:grid;
++      grid-template-columns:1.1fr 0.9fr;
++      gap:32px;
++    }
++    form {
++      background:#fff;
++      border-radius:var(--radius);
++      border:1px solid #DFE7F4;
++      padding:32px;
++      box-shadow:0 26px 52px rgba(6,27,58,.12);
++    }
++    label {
++      display:block;
++      font-weight:600;
++      color:var(--navy);
++      margin:18px 0 8px;
++      font-size:15px;
++    }
++    input, textarea {
++      width:100%;
++      padding:14px 16px;
++      border-radius:12px;
++      border:1px solid #CBD7EB;
++      background:#F6F9FF;
++      font-family:inherit;
++      font-size:15px;
++      transition:border .2s ease, box-shadow .2s ease;
++    }
++    input:focus, textarea:focus {
++      outline:none;
++      border-color:var(--orange);
++      box-shadow:0 0 0 3px rgba(245,166,35,.22);
++    }
++    textarea { min-height:150px; resize:vertical; }
++    .hint { font-size:12px; color:#7C8AA3; margin-top:10px; }
++    .contact-info { display:grid; gap:24px; }
++    .contact-card {
++      background:#fff;
++      border-radius:var(--radius);
++      border:1px solid #DFE7F4;
++      padding:26px;
++      box-shadow:0 24px 48px rgba(6,27,58,.12);
++    }
++    .contact-card h3 { margin:0 0 14px; font-size:22px; color:var(--navy); }
++    .contact-card p { margin:10px 0; color:#4C5A76; }
++    .contact-card a { color:var(--navy); font-weight:600; }
  
      /* Footer */
-     footer{background:#0A2342; color:#e2e8f0; padding:36px 0}
-     .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:36px; align-items:start}
-     .footer-brand{display:flex; align-items:center; gap:12px}
-     .small{font-size:14px; color:#cbd5f5}
-     .mt-0{margin-top:0}
-     .mt-8{margin-top:8px}
-     .mt-16{margin-top:16px}
- 
-     /* Responsivo */
-     @media (max-width:960px){
-       .hero-grid{grid-template-columns:1fr; text-align:center}
-+      .hero-highlight{margin:36px auto 0; padding:28px; text-align:left; max-width:520px}
-+      .hero-logo-lockup{padding:14px}
-       .hero-grid .stats{justify-content:center}
-       .contact{grid-template-columns:1fr}
-       .footer-grid{grid-template-columns:1fr; text-align:center}
-       nav ul{display:none; position:absolute; top:64px; right:20px; background:#0a2342; padding:18px 22px; border-radius:16px; flex-direction:column; gap:18px; box-shadow:0 16px 30px rgba(0,0,0,.24)}
-       nav ul a{font-size:16px}
-       .menu-toggle{display:inline-flex}
-     }
-     .menu-toggle{display:none; width:40px; height:40px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.08); align-items:center; justify-content:center; color:#fff}
+-    footer{background:#0A2342; color:#e2e8f0; padding:36px 0}
+-    .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:36px; align-items:start}
+-    .footer-brand{display:flex; align-items:center; gap:12px}
+-    .small{font-size:14px; color:#cbd5f5}
+-    .mt-0{margin-top:0}
+-    .mt-8{margin-top:8px}
+-    .mt-16{margin-top:16px}
+-
+-    /* Responsivo */
+-    @media (max-width:960px){
+-      .hero-grid{grid-template-columns:1fr; text-align:center}
+-      .hero-grid .stats{justify-content:center}
+-      .contact{grid-template-columns:1fr}
+-      .footer-grid{grid-template-columns:1fr; text-align:center}
+-      nav ul{display:none; position:absolute; top:64px; right:20px; background:#0a2342; padding:18px 22px; border-radius:16px; flex-direction:column; gap:18px; box-shadow:0 16px 30px rgba(0,0,0,.24)}
+-      nav ul a{font-size:16px}
+-      .menu-toggle{display:inline-flex}
+-    }
+-    .menu-toggle{display:none; width:40px; height:40px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.08); align-items:center; justify-content:center; color:#fff}
++    footer {
++      background:#061B3A;
++      color:#D4E2FF;
++      padding:42px 0;
++    }
++    .footer-grid {
++      display:grid;
++      grid-template-columns:2fr 1fr 1fr;
++      gap:40px;
++      align-items:start;
++    }
++    .footer-brand {
++      display:flex;
++      align-items:center;
++      gap:14px;
++      color:#fff;
++    }
++    .footer-brand strong { letter-spacing:.22em; text-transform:uppercase; }
++    .footer-small { color:#AFC3E8; font-size:14px; margin-top:14px; }
++    .footer-links { display:grid; gap:10px; font-size:15px; }
++
++    /* Responsive */
++    @media (max-width:1080px) {
++      .hero-grid { grid-template-columns:1fr; text-align:center; }
++      .lead { margin-left:auto; margin-right:auto; }
++      .hero-card { margin:0 auto; max-width:520px; text-align:left; }
++      .logo-badge { justify-content:center; }
++      .stats { justify-content:center; }
++      .contact { grid-template-columns:1fr; }
++      .about-wrapper { grid-template-columns:1fr; }
++    }
++    @media (max-width:860px) {
++      nav ul {
++        position:absolute;
++        top:80px;
++        right:24px;
++        background:#061B3A;
++        border:1px solid rgba(255,255,255,.16);
++        border-radius:18px;
++        padding:20px 24px;
++        display:none;
++        flex-direction:column;
++        gap:18px;
++        box-shadow:0 24px 48px rgba(0,0,0,.35);
++      }
++      .menu-toggle { display:inline-flex; }
++      .nav-actions { display:none; }
++      .grid-3, .feature-grid, .cases { grid-template-columns:1fr; }
++      .cta-card { flex-direction:column; align-items:flex-start; }
++    }
    </style>
  </head>
  <body>
-   <!-- Header -->
+-  <!-- Header -->
    <header>
      <div class="container nav">
        <a class="brand" href="#topo">
-         <span class="brand-logo" aria-hidden="true">
+-        <span class="brand-logo" aria-hidden="true">
 -          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 48L36 16h11l-9 22h10L25 48Z" fill="#F5A623"/></svg>
++        <span class="brand-mark" aria-hidden="true">
 +          <img src="img/avanci-icon.svg" alt="" loading="lazy" />
          </span>
-         <span class="brand-text">Avanci Consultoria</span>
+-        <span class="brand-text">Avanci Consultoria</span>
++        <span>Avanci Consultoria</span>
        </a>
  
        <button class="menu-toggle" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
-         <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M3 5h14v2H3V5Zm0 4h14v2H3V9Zm0 4h14v2H3v-2Z"/></svg>
+-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M3 5h14v2H3V5Zm0 4h14v2H3V9Zm0 4h14v2H3v-2Z"/></svg>
++        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z"/></svg>
        </button>
  
        <nav id="menu">
          <ul>
            <li><a href="#servicos">Serviços</a></li>
            <li><a href="#diferenciais">Diferenciais</a></li>
++          <li><a href="#cases">Cases</a></li>
            <li><a href="#sobre">Sobre</a></li>
            <li><a href="#contato">Contato</a></li>
          </ul>
        </nav>
  
-       <div class="nav-cta">
+-      <div class="nav-cta">
++      <div class="nav-actions">
          <a class="btn btn-ghost" href="#contato">Contato</a>
          <a class="btn btn-primary" href="https://wa.me/5541999999999" target="_blank" rel="noopener">Fale pelo WhatsApp</a>
        </div>
      </div>
    </header>
  
-   <!-- Hero -->
-diff --git a/index.html b/index.html
-index 6f4c346992a5b2efcae4b732f1beb5ab72347996..05c7fa9cd5c45f1fd7b93a4bdccfe29c88e8d81a 100644
---- a/index.html
-+++ b/index.html
-@@ -170,64 +180,69 @@
-           <span class="eyebrow">ENGENHARIA ELÉTRICA</span>
-           <h1 class="h1">Energia com <span class="accent">inteligência</span> para seu projeto industrial</h1>
-           <p class="lead">Consultoria especializada em estudos de proteção, comissionamento e operação de sistemas elétricos de potência. Atuamos com foco em confiabilidade, segurança e retorno sobre o investimento.</p>
+-  <!-- Hero -->
+   <main id="topo">
+     <section class="hero">
+       <div class="container hero-grid">
+         <div>
+-          <span class="eyebrow">ENGENHARIA ELÉTRICA</span>
+-          <h1 class="h1">Energia com <span class="accent">inteligência</span> para seu projeto industrial</h1>
+-          <p class="lead">Consultoria especializada em estudos de proteção, comissionamento e operação de sistemas elétricos de potência. Atuamos com foco em confiabilidade, segurança e retorno sobre o investimento.</p>
++          <span class="eyebrow">ENGENHARIA ELÉTRICA E AUTOMAÇÃO</span>
++          <h1 class="h1">Energia com <span class="accent">inteligência</span> e o selo Avanci de confiabilidade</h1>
++          <p class="lead">Combinamos experiência prática em campo com análise técnica de alto nível para garantir ativos elétricos seguros, eficientes e preparados para o futuro.</p>
  
            <div class="stats">
              <div class="stat">
-               <b>15+ anos</b>
-               <p>de experiência em utilities e geração</p>
+-              <b>15+ anos</b>
+-              <p>de experiência em utilities e geração</p>
++              <strong>15+ anos</strong>
++              <span>de atuação em geração, transmissão e utilities</span>
              </div>
              <div class="stat">
-               <b>120 MW</b>
-               <p>em usinas eólicas e solares acompanhadas</p>
+-              <b>120 MW</b>
+-              <p>em usinas eólicas e solares acompanhadas</p>
++              <strong>120&nbsp;MW</strong>
++              <span>monitorados em plantas solares e eólicas</span>
              </div>
              <div class="stat">
-               <b>95%</b>
-               <p>dos clientes retornam com novos projetos</p>
+-              <b>95%</b>
+-              <p>dos clientes retornam com novos projetos</p>
++              <strong>95%</strong>
++              <span>dos clientes retornam com novos projetos</span>
              </div>
            </div>
  
-           <div class="mt-16">
-             <a class="btn btn-primary" href="#contato">Agendar diagnóstico</a>
-             <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+-          <div class="mt-16">
+-            <a class="btn btn-primary" href="#contato">Agendar diagnóstico</a>
+-            <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
++          <div style="margin-top:34px; display:flex; gap:16px; flex-wrap:wrap;">
++            <a class="btn btn-secondary" href="#contato">Agendar diagnóstico</a>
++            <a class="btn btn-ghost" href="#servicos">Conhecer soluções</a>
            </div>
          </div>
  
@@ -197,52 +641,434 @@ index 6f4c346992a5b2efcae4b732f1beb5ab72347996..05c7fa9cd5c45f1fd7b93a4bdccfe29c
 -              <svg width="24" height="24" fill="none" stroke="#0A2342" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h16M4 12h16M4 17h16"/><path d="M8 3h8v2H8zM8 19h8v2H8z"/></svg>
 -            </span>
 -            <span>Planos personalizados por indústria</span>
-+        <div class="hero-highlight" aria-labelledby="hero-highlight-title">
-+          <div class="hero-logo-lockup">
-+            <img src="img/avanci-logo.svg" alt="Logotipo da Avanci Consultoria" loading="lazy" />
++        <aside class="hero-card" aria-labelledby="hero-brand">
++          <div class="logo-badge">
++            <img src="img/avanci-logo.svg" alt="Logotipo Avanci Consultoria" loading="lazy" />
            </div>
 -          <div class="mt-16 pill">
 -            <span class="icon" aria-hidden="true">
 -              <svg width="24" height="24" fill="none" stroke="#0A2342" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="m4 12 5 5 11-11"/></svg>
 -            </span>
 -            <span>Equipe com certificações CREA e NR-10</span>
-+          <h2 id="hero-highlight-title">Marca que transforma energia em resultados</h2>
-+          <p class="hero-highlight-lead">Excelência visual e técnica reunidas para representar a confiança que os clientes depositam na Avanci Consultoria.</p>
-+          <div class="hero-badges">
-+            <div class="hero-badge">
-+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="m4 13 4 4 12-12"/></svg>
-+              <span>Identidade que comunica segurança, inovação e visão de futuro para a indústria.</span>
++          <h2 id="hero-brand">Marca que traduz energia em resultados</h2>
++          <p>A identidade visual Avanci comunica precisão técnica, segurança operacional e visão estratégica em cada projeto conduzido pela nossa equipe.</p>
++          <div class="hero-highlights">
++            <div class="hero-highlight">
++              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4 13 4 4 12-12"/></svg>
++              <span>Framework proprietário de engenharia aplicado em projetos industriais de alta criticidade.</span>
 +            </div>
-+            <div class="hero-badge">
-+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 3 4 7v5c0 4.8 3.4 9.3 8 10 4.6-.7 8-5.2 8-10V7l-8-4Z"/><path d="M9 12.5 11.5 15 15 10"/></svg>
-+              <span>Especialistas com mais de 15 anos protegendo ativos de geração e distribuição de energia.</span>
++            <div class="hero-highlight">
++              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 4.8 3.4 9.3 8 10 4.6-.7 8-5.2 8-10V7l-8-4Z"/><path d="M9 12.5 11.5 15 15 10"/></svg>
++              <span>Equipe certificada em IEC&nbsp;61850, NR-10 e NR-12, com atuação em comissionamentos no Brasil e LATAM.</span>
 +            </div>
-+            <div class="hero-badge">
-+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 18v4"/><path d="m16.24 16.24 2.83 2.83"/><path d="M18 12h4"/><path d="m16.24 7.76 2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
-+              <span>Parceira estratégica para projetos que buscam energia segura, eficiente e inteligente.</span>
++            <div class="hero-highlight">
++              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 18v4"/><path d="m16.24 16.24 2.83 2.83"/><path d="M18 12h4"/><path d="m16.24 7.76 2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
++              <span>Parceria contínua: monitoramento remoto, indicadores personalizados e governança ativa.</span>
 +            </div>
            </div>
+-        </div>
++        </aside>
+       </div>
+     </section>
+ 
+-    <!-- Serviços -->
+     <section id="servicos">
+       <div class="container">
+-        <h2 class="section-title">Serviços especializados</h2>
+-        <p class="section-sub">Suporte completo para plantas industriais, usinas de geração e subestações.</p>
++        <div class="section-heading">
++          <h2 class="section-title">Serviços especializados</h2>
++          <p class="section-sub">Suporte integral para plantas industriais, usinas de geração distribuída ou centralizada e concessionárias de energia.</p>
++        </div>
+ 
+         <div class="grid grid-3">
+-          <article class="card">
+-            <span class="icon" aria-hidden="true">
+-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M4 17V7l10-4 10 4v10l-10 4-10-4Z"/><path d="m14 11 10-4M4 7l10 4m0 0v10"/></svg>
+-            </span>
++          <article class="service-card">
++            <div class="service-icon" aria-hidden="true">
++              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-7 4v8l7 4 7-4V7l-7-4Z"/><path d="m5 7 7 4 7-4"/><path d="M12 11v8"/></svg>
++            </div>
+             <h3>Estudos de proteção</h3>
+-            <p>Ajustes finos, coordenação e análise de curto-circuito em softwares líderes de mercado.</p>
++            <p>Modelagem digital, coordenação e ajustes de relés, análise de curto-circuito e seletividade para alta disponibilidade.</p>
+           </article>
+ 
+-          <article class="card">
+-            <span class="icon" aria-hidden="true">
+-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M5 20v-9l9-5 9 5v9l-9 5-9-5Z"/><path d="M5 11 14 6l9 5M14 27V17"/></svg>
+-            </span>
+-            <h3>Comissionamento</h3>
+-            <p>Procedimentos completos, testes SAT/FAT, parametrização de IEDs e treinamento de equipes.</p>
++          <article class="service-card">
++            <div class="service-icon" aria-hidden="true">
++              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4 19 3-9h6l3 9"/><path d="m7 10 3-9h4l3 9"/></svg>
++            </div>
++            <h3>Comissionamento & SAT/FAT</h3>
++            <p>Testes integrados, parametrização de IEDs, start-up assistido e entrega com dossiê completo.</p>
+           </article>
+ 
+-          <article class="card">
+-            <span class="icon" aria-hidden="true">
+-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="m4 22 3-9h6l3 9"/><path d="m7 13 3-9h4l3 9"/></svg>
+-            </span>
+-            <h3>O&M de usinas</h3>
+-            <p>Planos de manutenção, gestão de indicadores e suporte remoto 24/7 para disponibilidade máxima.</p>
++          <article class="service-card">
++            <div class="service-icon" aria-hidden="true">
++              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14v9H5z"/><path d="M8 7h4v5H8zM12 7h4v5h-4z"/></svg>
++            </div>
++            <h3>Operação & O&M</h3>
++            <p>Planos de manutenção, teleassistência 24/7, KPIs personalizados e gestão de sobressalentes críticos.</p>
+           </article>
+ 
+-          <article class="card">
+-            <span class="icon" aria-hidden="true">
+-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M7 19h14v4H7z"/><path d="M4 23h20M11 7l3-3 3 3M14 4v15"/></svg>
+-            </span>
+-            <h3>Integração de geração distribuída</h3>
+-            <p>Projetos solares, eólicos e híbridos com foco em performance e conformidade regulatória.</p>
++          <article class="service-card">
++            <div class="service-icon" aria-hidden="true">
++              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M9 5v14M15 5v14"/></svg>
++            </div>
++            <h3>Automação & IEC 61850</h3>
++            <p>Integração SCADA, gateways, teleproteção e redes industriais com segurança cibernética.</p>
+           </article>
+ 
+-          <article class="card">
+-            <span class="icon" aria-hidden="true">
+-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M6 10h16v12H6z"/><path d="M10 6h4v4h-4zM14 6h4v4h-4zM10 22h4v4h-4zM14 22h4v4h-4z"/></svg>
+-            </span>
+-            <h3>Digitalização e automação</h3>
+-            <p>Projetos SCADA, teleproteção e integração com sistemas corporativos.</p>
++          <article class="service-card">
++            <div class="service-icon" aria-hidden="true">
++              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
++            </div>
++            <h3>Consultoria regulatória</h3>
++            <p>Relatórios técnicos, artefatos para ONS/ANEEL, due diligence e suporte a fiscalizações.</p>
+           </article>
+ 
+-          <article class="card">
+-            <span class="icon" aria-hidden="true">
+-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h18v10H5z"/><path d="M9 6h10v6H9zM9 22h10v6H9z"/></svg>
+-            </span>
+-            <h3>Consultoria regulatória</h3>
+-            <p>Suporte em pareceres técnicos, artefatos para ANEEL/ONS e due diligence de ativos.</p>
++          <article class="service-card">
++            <div class="service-icon" aria-hidden="true">
++              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m2 12 8.5 8L22 5"/></svg>
++            </div>
++            <h3>Projetos especiais</h3>
++            <p>Integração de geração distribuída, armazenamento, microrredes e estudos de modernização de subestações.</p>
+           </article>
          </div>
        </div>
      </section>
  
-     <!-- Serviços -->
-     <section id="servicos">
+-    <!-- Diferenciais -->
+     <section id="diferenciais">
        <div class="container">
-         <h2 class="section-title">Serviços especializados</h2>
-         <p class="section-sub">Suporte completo para plantas industriais, usinas de geração e subestações.</p>
+-        <h2 class="section-title">Por que a Avanci?</h2>
+-        <p class="section-sub">Aliamos engenharia de ponta a uma gestão próxima e transparente.</p>
++        <div class="section-heading">
++          <h2 class="section-title">Por que a Avanci?</h2>
++          <p class="section-sub">Equipe de engenharia que fala a linguagem dos investidores, gestores de ativos e times operacionais.</p>
++        </div>
  
-         <div class="grid grid-3">
-           <article class="card">
-             <span class="icon" aria-hidden="true">
-               <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M4 17V7l10-4 10 4v10l-10 4-10-4Z"/><path d="m14 11 10-4M4 7l10 4m0 0v10"/></svg>
-             </span>
-             <h3>Estudos de proteção</h3>
-             <p>Ajustes finos, coordenação e análise de curto-circuito em softwares líderes de mercado.</p>
+-        <div class="grid grid-3">
+-          <article class="card">
+-            <h3>Engenharia aplicada</h3>
+-            <p>Experiência prática em campo comissionando equipamentos de média e alta tensão.</p>
++        <div class="grid feature-grid">
++          <article class="feature-card">
++            <h3>Metodologia comprovada</h3>
++            <p>Processos com checklists proprietários, automações e dashboards que garantem rastreabilidade total de cada etapa.</p>
            </article>
+-          <article class="card">
+-            <h3>Metodologia ágil</h3>
+-            <p>Projetos conduzidos com sprints semanais, entregas incrementais e visibilidade total.</p>
++          <article class="feature-card">
++            <h3>Presença em campo</h3>
++            <p>Profissionais com EPIs e certificações atualizadas, executando testes e ajustes em ambientes de média e alta tensão.</p>
+           </article>
+-          <article class="card">
+-            <h3>Compliance e segurança</h3>
+-            <p>Atuação conforme NR-10, NR-12, IEC 61850 e demais normas do setor elétrico.</p>
++          <article class="feature-card">
++            <h3>Entrega com governança</h3>
++            <p>Documentação padronizada, controle de versões e integração com ferramentas corporativas para compliance.</p>
+           </article>
+         </div>
++      </div>
++    </section>
++
++    <section id="cases">
++      <div class="container">
++        <div class="section-heading">
++          <h2 class="section-title">Resultados recentes</h2>
++          <p class="section-sub">Alguns projetos onde aplicamos a inteligência Avanci para desbloquear performance energética.</p>
++        </div>
  
-           <article class="card">
-             <span class="icon" aria-hidden="true">
-               <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M5 20v-9l9-5 9 5v9l-9 5-9-5Z"/><path d="M5 11 14 6l9 5M14 27V17"/></svg>
-             </span>
-             <h3>Comissionamento</h3>
+-        <div class="mt-16 logos">
+-          <span class="logo-badge">Clientes industriais</span>
+-          <span class="logo-badge">Utilities</span>
+-          <span class="logo-badge">Concessionárias</span>
+-          <span class="logo-badge">EPCistas</span>
++        <div class="grid cases">
++          <article class="case-card">
++            <span class="case-meta">Geração solar — LATAM</span>
++            <h3 class="case-title">Comissionamento de usina híbrida 45&nbsp;MW</h3>
++            <p class="case-body">Start-up em tempo recorde com integração SCADA, teleproteção e transferência automática para operação comercial.</p>
++          </article>
++          <article class="case-card">
++            <span class="case-meta">Indústria eletrointensiva — Brasil</span>
++            <h3 class="case-title">Retrofit de proteção 138&nbsp;kV</h3>
++            <p class="case-body">Substituição de relés e adequação NR-10 com downtime reduzido em 60% e redução de incidentes operacionais.</p>
++          </article>
++          <article class="case-card">
++            <span class="case-meta">Utility — Região Sul</span>
++            <h3 class="case-title">Programa de O&M em 28 subestações</h3>
++            <p class="case-body">Planos de manutenção, teleassistência 24/7 e indicadores executivos entregues mensalmente.</p>
++          </article>
+         </div>
+       </div>
+     </section>
+ 
+-    <!-- Sobre -->
+     <section id="sobre">
+       <div class="container">
+-        <h2 class="section-title">Sobre a consultoria</h2>
+-        <p class="section-sub">A Avanci Consultoria foi fundada em 2015 para entregar energia segura e eficiente.</p>
++        <div class="section-heading">
++          <h2 class="section-title">Sobre a Avanci</h2>
++          <p class="section-sub">Fundada em 2015, a Avanci Consultoria combina engenharia elétrica, digitalização e visão de negócios.</p>
++        </div>
+ 
+-        <div class="about">
+-          <p>Somos engenheiros apaixonados por sistemas elétricos de potência. Atuamos em projetos em todo o Brasil, com foco em geração renovável, indústrias eletrointensivas e concessões de distribuição.</p>
+-          <p>Nossa abordagem combina análise técnica aprofundada, ferramentas digitais e um relacionamento próximo com o cliente, garantindo decisões embasadas e resultados consistentes.</p>
++        <div class="about-wrapper">
++          <article class="about-card">
++            <h3>Somos engenheiros de campo e estratégia</h3>
++            <p>Já estivemos no canteiro de obras, na sala de controle e na sala do board. Isso nos permite traduzir objetivos corporativos em ações técnicas precisas.</p>
++            <p>Atuamos em todo o Brasil e LATAM, com experiência em geração renovável, transmissão, subestações industriais e concessões de distribuição.</p>
++            <div class="pill-list">
++              <span class="pill">SCADA & Teleproteção</span>
++              <span class="pill">IEC 61850</span>
++              <span class="pill">NR-10 & NR-12</span>
++              <span class="pill">Gestão de ativos</span>
++              <span class="pill">Due diligence técnica</span>
++            </div>
++          </article>
++          <article class="about-card">
++            <h3>Como entregamos valor</h3>
++            <p>Combinamos ferramentas digitais, análises preditivas e acompanhamento contínuo para antecipar riscos e ampliar a disponibilidade.</p>
++            <p>Cada projeto recebe um squad dedicado, com plano de comunicação e rituais de alinhamento. Transparência total do kickoff ao pós-entrega.</p>
++          </article>
+         </div>
+       </div>
+     </section>
+ 
+-    <!-- CTA -->
+     <section>
+       <div class="container">
+-        <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;">
++        <div class="cta-card">
+           <div>
+-            <h2 class="section-title" style="margin-bottom:6px;">Pronto para acelerar seu projeto?</h2>
+-            <p class="section-sub" style="margin-bottom:0;">Agende uma conversa inicial gratuita para mapear oportunidades e riscos.</p>
++            <h2>Pronto para elevar a confiabilidade da sua operação?</h2>
++            <p>Agende uma conversa estratégica gratuita. Vamos mapear riscos, oportunidades e o melhor roadmap para o seu ativo elétrico.</p>
+           </div>
+           <a class="btn btn-primary" href="https://cal.com" target="_blank" rel="noopener">Agendar diagnóstico</a>
+         </div>
+       </div>
+     </section>
+ 
+-    <!-- Contato -->
+     <section id="contato">
+       <div class="container">
+-        <h2 class="section-title">Fale com a nossa equipe</h2>
+-        <p class="section-sub">Responderemos em até 24h úteis.</p>
++        <div class="section-heading">
++          <h2 class="section-title">Fale com a nossa equipe</h2>
++          <p class="section-sub">Responderemos em até 24h úteis com um plano inicial de ação.</p>
++        </div>
+ 
+         <div class="contact">
+           <form name="contato" method="POST" data-netlify="true" action="/#enviado">
+             <input type="hidden" name="form-name" value="contato" />
++
+             <label for="nome">Nome</label>
+             <input id="nome" name="nome" placeholder="Seu nome completo" required />
+ 
+             <label for="empresa">Empresa</label>
+             <input id="empresa" name="empresa" placeholder="Nome da empresa" />
+ 
+             <label for="email">E-mail</label>
+             <input id="email" name="email" type="email" placeholder="nome@empresa.com" required />
+ 
+             <label for="telefone">Telefone</label>
+             <input id="telefone" name="telefone" type="tel" autocomplete="tel" />
+ 
+             <label for="assunto">Assunto</label>
+             <input id="assunto" name="assunto" placeholder="Ex.: Estudo de proteção para SE 138 kV" required />
+ 
+             <label for="mensagem">Mensagem</label>
+             <textarea id="mensagem" name="mensagem" placeholder="Descreva brevemente o desafio e o prazo desejado" required></textarea>
+ 
+             <p class="hint">Ao enviar, você concorda com o tratamento dos seus dados para retorno comercial.</p>
+-            <button class="btn btn-primary" type="submit">Enviar</button>
++            <button class="btn btn-primary" type="submit">Enviar mensagem</button>
+           </form>
+ 
+-          <div>
+-            <div class="card">
+-              <h3 class="mt-0">Canais</h3>
+-              <p class="mt-8"><b>E-mail</b><br><a href="mailto:contato@avanciconsultoria.com.br">contato@avanciconsultoria.com.br</a></p>
+-              <p class="mt-8"><b>Telefone</b><br><a href="tel:+5541999999999">+55 (41) 99999-9999</a></p>
+-              <p class="mt-8"><b>Endereço</b><br>Curitiba — PR, Brasil</p>
+-              <p class="mt-8 small">Atendemos Brasil e LATAM. Reuniões online ou presenciais sob agendamento.</p>
++          <div class="contact-info">
++            <div class="contact-card">
++              <h3>Canais diretos</h3>
++              <p><strong>E-mail</strong><br><a href="mailto:contato@avanciconsultoria.com.br">contato@avanciconsultoria.com.br</a></p>
++              <p><strong>Telefone</strong><br><a href="tel:+5541999999999">+55 (41) 99999-9999</a></p>
++              <p><strong>Endereço</strong><br>Curitiba — PR, Brasil</p>
++              <p class="hint">Atendemos Brasil e LATAM. Reuniões presenciais mediante agendamento.</p>
+             </div>
+-            <div class="card mt-16">
+-              <h3 class="mt-0">Documentos e Portfólio</h3>
+-              <p class="mt-8">Baixe a apresentação institucional e cases resumidos.</p>
++            <div class="contact-card">
++              <h3>Documentos e portfólio</h3>
++              <p>Baixe a apresentação institucional com cases completos, certificações e equipe técnica.</p>
+               <a class="btn btn-ghost" href="#" aria-disabled="true">Baixar PDF (em breve)</a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </section>
+   </main>
+ 
+-  <!-- Footer -->
+   <footer>
+     <div class="container footer-grid">
+       <div>
+         <div class="footer-brand">
+-          <span class="brand-logo" aria-hidden="true">
++          <span class="brand-mark" aria-hidden="true">
+             <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 48L36 16h11l-9 22h10L25 48Z" fill="var(--orange)"/></svg>
+           </span>
+           <strong>Avanci Consultoria</strong>
+         </div>
+-        <p class="small mt-16">© <span id="y"></span> Avanci Consultoria. Todos os direitos reservados.</p>
++        <p class="footer-small">© <span id="ano"></span> Avanci Consultoria. Todos os direitos reservados.</p>
+       </div>
+-      <div>
+-        <p class="small"><b>Empresa</b></p>
+-        <p class="small"><a href="#sobre">Sobre</a></p>
+-        <p class="small"><a href="#servicos">Serviços</a></p>
+-        <p class="small"><a href="#contato">Contato</a></p>
++      <div class="footer-links">
++        <strong>Empresa</strong>
++        <a href="#sobre">Sobre</a>
++        <a href="#servicos">Serviços</a>
++        <a href="#cases">Cases</a>
++        <a href="#contato">Contato</a>
+       </div>
+-      <div>
+-        <p class="small"><b>Legal</b></p>
+-        <p class="small"><a href="#">Política de Privacidade</a></p>
+-        <p class="small"><a href="#">Termos de Uso</a></p>
+-        <p class="small">CNPJ 00.000.000/0000-00</p>
++      <div class="footer-links">
++        <strong>Legal</strong>
++        <a href="#">Política de Privacidade</a>
++        <a href="#">Termos de Uso</a>
++        <span>CNPJ 00.000.000/0000-00</span>
+       </div>
+     </div>
+   </footer>
+ 
+   <!-- Structured data -->
+   <script type="application/ld+json">
+   {
+     "@context": "https://schema.org",
+     "@type": "Organization",
+     "name": "Avanci Consultoria",
+     "url": "https://www.avanciconsultoria.com.br",
+-    "logo": "https://www.avanciconsultoria.com.br/img/logo.png",
++    "logo": "https://www.avanciconsultoria.com.br/img/avanci-logo.svg",
+     "contactPoint": [{
+       "@type": "ContactPoint",
+       "contactType": "sales",
+       "email": "contato@avanciconsultoria.com.br",
+       "telephone": "+55-41-99999-9999",
+       "areaServed": "BR"
+     }]
+   }
+   </script>
+ 
+   <script>
+-    // Atualiza ano no rodapé
+-    document.getElementById('y').textContent = new Date().getFullYear();
++    const anoSpan = document.getElementById('ano');
++    if (anoSpan) {
++      anoSpan.textContent = new Date().getFullYear();
++    }
+ 
+-    // Menu responsivo
+     const toggle = document.querySelector('.menu-toggle');
+     const menu = document.getElementById('menu');
+-    toggle?.addEventListener('click', ()=>{
+-      const ul = menu.querySelector('ul');
+-      const shown = getComputedStyle(ul).display !== 'none';
+-      ul.style.display = shown ? 'none' : 'flex';
+-      toggle.setAttribute('aria-expanded', String(!shown));
++
++    toggle?.addEventListener('click', () => {
++      const list = menu.querySelector('ul');
++      const isVisible = getComputedStyle(list).display !== 'none';
++      list.style.display = isVisible ? 'none' : 'flex';
++      toggle.setAttribute('aria-expanded', String(!isVisible));
+     });
+ 
+-    // Mensagem simples de sucesso (Netlify Forms)
+     if (window.location.hash === '#enviado') {
+       alert('Mensagem enviada! Obrigado pelo contato.');
+     }
+   </script>
+ 
+   <!--
+     ⚡ Guia rápido de publicação
+     1) Salve este arquivo como index.html na raiz do projeto.
+-    2) Hospedagem fácil: Netlify (arraste e solte) ou Vercel.
+-       - Netlify Forms já funciona com o atributo data-netlify do formulário.
+-    3) Altere e-mails, telefone e CNPJ no rodapé/contato.
+-    4) Troque /img/og-cover.jpg e /img/logo.png pelos arquivos reais da marca.
+-    5) Opcional: crie robots.txt e sitemap.xml (modelos abaixo).
+-
+-    robots.txt
+-    -----------
+-    User-agent: *
+-    Allow: /
+-    Sitemap: https://www.avanciconsultoria.com.br/sitemap.xml
+-
+-    sitemap.xml (arquivo separado na raiz)
+-    --------------------------------------
+-    <?xml version="1.0" encoding="UTF-8"?>
+-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+-      <url><loc>https://www.avanciconsultoria.com.br/</loc></url>
+-    </urlset>
++    2) Hospedagem fácil: Netlify (drag & drop) ou Vercel.
++       - Netlify Forms já está habilitado com o atributo data-netlify.
++    3) Atualize contatos, telefone e CNPJ antes de publicar.
++    4) Substitua /img/og-cover.jpg, /img/avanci-icon.svg e /img/avanci-logo.svg pelos arquivos oficiais.
++    5) Garanta robots.txt e sitemap.xml atualizados para SEO.
+   -->
+ </body>
+ </html>
