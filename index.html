@@ -198,14 +198,19 @@
       z-index:1;
       display:grid;
       place-items:center;
-      padding:24px;
+      width:320px;
+      height:320px;
+      box-sizing:border-box;
+      padding:20px;
       border-radius:26px;
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.12);
       margin-bottom:28px;
     }
     .logo-badge img {
-      width:260px;
+      width:100%;
+      height:100%;
+      object-fit:contain;
       filter:drop-shadow(0 32px 42px rgba(245,166,35,.35));
     }
     .hero-card h2 {
