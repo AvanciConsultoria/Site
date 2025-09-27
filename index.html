@@ -1,466 +1,248 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Avanci Consultoria — Energia com inteligência</title>
-  <meta name="description" content="Consultoria em engenharia elétrica: estudos de proteção, comissionamento, O&M de usinas, subestações e soluções com energia e inteligência." />
-  <meta name="author" content="Avanci Consultoria" />
-  <meta name="theme-color" content="#0A2342" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Avanci Consultoria — Energia com inteligência" />
-  <meta property="og:description" content="Engenharia elétrica com precisão, segurança e foco em resultados." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.avanciconsultoria.com.br" />
-  <meta property="og:image" content="/img/og-cover.jpg" />
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --navy:#0A2342;       /* fundo principal */
-      --graphite:#333333;   /* texto escuro */
-      --orange:#F5A623;     /* destaque */
-      --muted:#6B7280;      /* texto secundário */
-      --paper:#ffffff;      /* superfícies */
-      --ink:#0f172a;        /* texto principal */
-      --cloud:#F3F6FA;      /* fundo claro */
-      --radius:18px;        /* raios de borda */
-      --maxw:1200px;        /* largura máxima */
-      --shadow:0 10px 30px rgba(10,35,66,.12);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-      color:var(--ink);
-      background:linear-gradient(180deg,#0A2342 0%, #0A2342 22%, #F3F6FA 22.1%, #F3F6FA 100%);
-    }
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
-    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
-
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(180%) blur(14px);
-      background:rgba(10,35,66,.78); border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:12px; color:#fff; font-weight:700; letter-spacing:.3px}
-    .brand-logo{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:12px; background:rgba(255,255,255,.06); box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-    .brand-logo svg{width:26px; height:26px}
-    .brand-text{font-size:18px}
-    nav ul{list-style:none; display:flex; gap:26px; margin:0; padding:0}
-    nav a{color:#e5ecff; font-weight:500; opacity:.9}
-    nav a:hover{opacity:1}
-    .nav-cta{display:flex; align-items:center; gap:10px}
-
-    /* Buttons */
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; font-weight:600; padding:12px 18px; border-radius:999px; border:1px solid transparent; transition:transform .06s ease, box-shadow .2s ease, background .2s ease; cursor:pointer}
-    .btn:active{transform:translateY(1px)}
-    .btn-primary{background:var(--orange); color:#1b1b1b; box-shadow:0 6px 18px rgba(245,166,35,.35)}
-    .btn-primary:hover{filter:saturate(1.05) brightness(1.02)}
-    .btn-ghost{background:transparent; color:#fff; border-color:rgba(255,255,255,.25)}
-    .btn-ghost:hover{background:rgba(255,255,255,.08)}
-
-    /* Hero */
-    .hero{color:#fff; padding:86px 0 92px}
-    .hero-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center}
-    .eyebrow{display:inline-block; font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:#c5d3ff; margin-bottom:14px}
-    .h1{font-size:46px; line-height:1.1; margin:0 0 16px; font-weight:800}
-    .h1 .accent{color:var(--orange)}
-    .lead{font-size:18px; line-height:1.6; color:#dce6ff; margin:0 0 28px}
-    .stats{display:flex; gap:20px; flex-wrap:wrap; margin-top:18px}
-    .stat{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); padding:12px 16px; border-radius:14px; min-width:160px}
-    .stat b{font-size:20px; color:#fff}
-    .hero-card{background:#0d2a54; border:1px solid rgba(255,255,255,.12); padding:24px; border-radius:var(--radius); box-shadow:var(--shadow)}
-
-    /* Sections */
-    section{padding:80px 0}
-    .section-title{font-size:32px; margin:0 0 10px; font-weight:800; color:#0A2342}
-    .section-sub{color:var(--muted); margin-bottom:34px}
-
-    /* Cards e grids */
-    .grid{display:grid; gap:22px}
-    .grid-3{grid-template-columns:repeat(3, 1fr)}
-    .card{background:var(--paper); border:1px solid #e7eef7; border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); transition:transform .15s ease, box-shadow .2s}
-    .card:hover{transform:translateY(-2px); box-shadow:0 16px 38px rgba(10,35,66,.12)}
-    .card h3{margin:8px 0 8px; font-size:20px; color:var(--navy)}
-    .card p{margin:0; color:#475569}
-    .icon{width:28px; height:28px; display:inline-flex}
-
-    /* Chips/Destaques */
-    .pill{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; background:#fff; border:1px solid #e7eef7; box-shadow:var(--shadow)}
-
-    /* Logos/Clientes */
-    .logos{display:flex; gap:24px; flex-wrap:wrap; align-items:center}
-    .logo-badge{height:40px; width:140px; background:#fff; border:1px solid #e6eaf1; border-radius:12px; display:grid; place-items:center; color:#64748b}
-
-    /* Sobre */
-    .about{background:#fff; border:1px solid #e7eef7; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
-
-    /* Contato */
-    .contact{display:grid; grid-template-columns:1fr 1fr; gap:26px}
-    form{background:#fff; border:1px solid #e7eef7; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
-    label{display:block; font-weight:600; font-size:14px; margin:8px 0 6px; color:#0A2342}
-    input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid #d7deea; background:#f9fbfe; font-family:inherit; font-size:15px}
-    textarea{min-height:140px; resize:vertical}
-    .hint{font-size:12px; color:#6b7280}
-
-    /* Footer */
-    footer{background:#0A2342; color:#e2e8f0; padding:36px 0}
-    .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:36px; align-items:start}
-    .footer-brand{display:flex; align-items:center; gap:12px}
-    .small{font-size:14px; color:#cbd5f5}
-    .mt-0{margin-top:0}
-    .mt-8{margin-top:8px}
-    .mt-16{margin-top:16px}
-
-    /* Responsivo */
-    @media (max-width:960px){
-      .hero-grid{grid-template-columns:1fr; text-align:center}
-      .hero-grid .stats{justify-content:center}
-      .contact{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr; text-align:center}
-      nav ul{display:none; position:absolute; top:64px; right:20px; background:#0a2342; padding:18px 22px; border-radius:16px; flex-direction:column; gap:18px; box-shadow:0 16px 30px rgba(0,0,0,.24)}
-      nav ul a{font-size:16px}
-      .menu-toggle{display:inline-flex}
-    }
-    .menu-toggle{display:none; width:40px; height:40px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.08); align-items:center; justify-content:center; color:#fff}
-  </style>
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#topo">
-        <span class="brand-logo" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 48L36 16h11l-9 22h10L25 48Z" fill="#F5A623"/></svg>
-        </span>
-        <span class="brand-text">Avanci Consultoria</span>
-      </a>
-
-      <button class="menu-toggle" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M3 5h14v2H3V5Zm0 4h14v2H3V9Zm0 4h14v2H3v-2Z"/></svg>
-      </button>
-
-      <nav id="menu">
-        <ul>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#diferenciais">Diferenciais</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav-cta">
-        <a class="btn btn-ghost" href="#contato">Contato</a>
-        <a class="btn btn-primary" href="https://wa.me/5541999999999" target="_blank" rel="noopener">Fale pelo WhatsApp</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main id="topo">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">ENGENHARIA ELÉTRICA</span>
-          <h1 class="h1">Energia com <span class="accent">inteligência</span> para seu projeto industrial</h1>
-          <p class="lead">Consultoria especializada em estudos de proteção, comissionamento e operação de sistemas elétricos de potência. Atuamos com foco em confiabilidade, segurança e retorno sobre o investimento.</p>
-
-          <div class="stats">
-            <div class="stat">
-              <b>15+ anos</b>
-              <p>de experiência em utilities e geração</p>
-            </div>
-            <div class="stat">
-              <b>120 MW</b>
-              <p>em usinas eólicas e solares acompanhadas</p>
-            </div>
-            <div class="stat">
-              <b>95%</b>
-              <p>dos clientes retornam com novos projetos</p>
-            </div>
-          </div>
-
-          <div class="mt-16">
-            <a class="btn btn-primary" href="#contato">Agendar diagnóstico</a>
-            <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <h2 class="mt-0">Soluções para cada fase</h2>
-          <p>Da concepção ao comissionamento, mapeamos riscos, desenhamos proteções e entregamos energia segura.</p>
-          <div class="mt-16 pill">
-            <span class="icon" aria-hidden="true">
-              <svg width="24" height="24" fill="none" stroke="#0A2342" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h16M4 12h16M4 17h16"/><path d="M8 3h8v2H8zM8 19h8v2H8z"/></svg>
-            </span>
-            <span>Planos personalizados por indústria</span>
-          </div>
-          <div class="mt-16 pill">
-            <span class="icon" aria-hidden="true">
-              <svg width="24" height="24" fill="none" stroke="#0A2342" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="m4 12 5 5 11-11"/></svg>
-            </span>
-            <span>Equipe com certificações CREA e NR-10</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Serviços -->
-    <section id="servicos">
-      <div class="container">
-        <h2 class="section-title">Serviços especializados</h2>
-        <p class="section-sub">Suporte completo para plantas industriais, usinas de geração e subestações.</p>
-
-        <div class="grid grid-3">
-          <article class="card">
-            <span class="icon" aria-hidden="true">
-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M4 17V7l10-4 10 4v10l-10 4-10-4Z"/><path d="m14 11 10-4M4 7l10 4m0 0v10"/></svg>
-            </span>
-            <h3>Estudos de proteção</h3>
-            <p>Ajustes finos, coordenação e análise de curto-circuito em softwares líderes de mercado.</p>
-          </article>
-
-          <article class="card">
-            <span class="icon" aria-hidden="true">
-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M5 20v-9l9-5 9 5v9l-9 5-9-5Z"/><path d="M5 11 14 6l9 5M14 27V17"/></svg>
-            </span>
-            <h3>Comissionamento</h3>
-            <p>Procedimentos completos, testes SAT/FAT, parametrização de IEDs e treinamento de equipes.</p>
-          </article>
-
-          <article class="card">
-            <span class="icon" aria-hidden="true">
-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="m4 22 3-9h6l3 9"/><path d="m7 13 3-9h4l3 9"/></svg>
-            </span>
-            <h3>O&M de usinas</h3>
-            <p>Planos de manutenção, gestão de indicadores e suporte remoto 24/7 para disponibilidade máxima.</p>
-          </article>
-
-          <article class="card">
-            <span class="icon" aria-hidden="true">
-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M7 19h14v4H7z"/><path d="M4 23h20M11 7l3-3 3 3M14 4v15"/></svg>
-            </span>
-            <h3>Integração de geração distribuída</h3>
-            <p>Projetos solares, eólicos e híbridos com foco em performance e conformidade regulatória.</p>
-          </article>
-
-          <article class="card">
-            <span class="icon" aria-hidden="true">
-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M6 10h16v12H6z"/><path d="M10 6h4v4h-4zM14 6h4v4h-4zM10 22h4v4h-4zM14 22h4v4h-4z"/></svg>
-            </span>
-            <h3>Digitalização e automação</h3>
-            <p>Projetos SCADA, teleproteção e integração com sistemas corporativos.</p>
-          </article>
-
-          <article class="card">
-            <span class="icon" aria-hidden="true">
-              <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h18v10H5z"/><path d="M9 6h10v6H9zM9 22h10v6H9z"/></svg>
-            </span>
-            <h3>Consultoria regulatória</h3>
-            <p>Suporte em pareceres técnicos, artefatos para ANEEL/ONS e due diligence de ativos.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Diferenciais -->
-    <section id="diferenciais">
-      <div class="container">
-        <h2 class="section-title">Por que a Avanci?</h2>
-        <p class="section-sub">Aliamos engenharia de ponta a uma gestão próxima e transparente.</p>
-
-        <div class="grid grid-3">
-          <article class="card">
-            <h3>Engenharia aplicada</h3>
-            <p>Experiência prática em campo comissionando equipamentos de média e alta tensão.</p>
-          </article>
-          <article class="card">
-            <h3>Metodologia ágil</h3>
-            <p>Projetos conduzidos com sprints semanais, entregas incrementais e visibilidade total.</p>
-          </article>
-          <article class="card">
-            <h3>Compliance e segurança</h3>
-            <p>Atuação conforme NR-10, NR-12, IEC 61850 e demais normas do setor elétrico.</p>
-          </article>
-        </div>
-
-        <div class="mt-16 logos">
-          <span class="logo-badge">Clientes industriais</span>
-          <span class="logo-badge">Utilities</span>
-          <span class="logo-badge">Concessionárias</span>
-          <span class="logo-badge">EPCistas</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sobre -->
-    <section id="sobre">
-      <div class="container">
-        <h2 class="section-title">Sobre a consultoria</h2>
-        <p class="section-sub">A Avanci Consultoria foi fundada em 2015 para entregar energia segura e eficiente.</p>
-
-        <div class="about">
-          <p>Somos engenheiros apaixonados por sistemas elétricos de potência. Atuamos em projetos em todo o Brasil, com foco em geração renovável, indústrias eletrointensivas e concessões de distribuição.</p>
-          <p>Nossa abordagem combina análise técnica aprofundada, ferramentas digitais e um relacionamento próximo com o cliente, garantindo decisões embasadas e resultados consistentes.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section>
-      <div class="container">
-        <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;">
-          <div>
-            <h2 class="section-title" style="margin-bottom:6px;">Pronto para acelerar seu projeto?</h2>
-            <p class="section-sub" style="margin-bottom:0;">Agende uma conversa inicial gratuita para mapear oportunidades e riscos.</p>
-          </div>
-          <a class="btn btn-primary" href="https://cal.com" target="_blank" rel="noopener">Agendar diagnóstico</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contato -->
-    <section id="contato">
-      <div class="container">
-        <h2 class="section-title">Fale com a nossa equipe</h2>
-        <p class="section-sub">Responderemos em até 24h úteis.</p>
-
-        <div class="contact">
-          <form name="contato" method="POST" data-netlify="true" action="/#enviado">
-            <input type="hidden" name="form-name" value="contato" />
-            <label for="nome">Nome</label>
-            <input id="nome" name="nome" placeholder="Seu nome completo" required />
-
-            <label for="empresa">Empresa</label>
-            <input id="empresa" name="empresa" placeholder="Nome da empresa" />
-
-            <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" placeholder="nome@empresa.com" required />
-
-            <label for="telefone">Telefone</label>
-            <input id="telefone" name="telefone" type="tel" autocomplete="tel" />
-
-            <label for="assunto">Assunto</label>
-            <input id="assunto" name="assunto" placeholder="Ex.: Estudo de proteção para SE 138 kV" required />
-
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" placeholder="Descreva brevemente o desafio e o prazo desejado" required></textarea>
-
-            <p class="hint">Ao enviar, você concorda com o tratamento dos seus dados para retorno comercial.</p>
-            <button class="btn btn-primary" type="submit">Enviar</button>
-          </form>
-
-          <div>
-            <div class="card">
-              <h3 class="mt-0">Canais</h3>
-              <p class="mt-8"><b>E-mail</b><br><a href="mailto:contato@avanciconsultoria.com.br">contato@avanciconsultoria.com.br</a></p>
-              <p class="mt-8"><b>Telefone</b><br><a href="tel:+5541999999999">+55 (41) 99999-9999</a></p>
-              <p class="mt-8"><b>Endereço</b><br>Curitiba — PR, Brasil</p>
-              <p class="mt-8 small">Atendemos Brasil e LATAM. Reuniões online ou presenciais sob agendamento.</p>
-            </div>
-            <div class="card mt-16">
-              <h3 class="mt-0">Documentos e Portfólio</h3>
-              <p class="mt-8">Baixe a apresentação institucional e cases resumidos.</p>
-              <a class="btn btn-ghost" href="#" aria-disabled="true">Baixar PDF (em breve)</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <div class="footer-brand">
-          <span class="brand-logo" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 48L36 16h11l-9 22h10L25 48Z" fill="var(--orange)"/></svg>
-          </span>
-          <strong>Avanci Consultoria</strong>
-        </div>
-        <p class="small mt-16">© <span id="y"></span> Avanci Consultoria. Todos os direitos reservados.</p>
-      </div>
-      <div>
-        <p class="small"><b>Empresa</b></p>
-        <p class="small"><a href="#sobre">Sobre</a></p>
-        <p class="small"><a href="#servicos">Serviços</a></p>
-        <p class="small"><a href="#contato">Contato</a></p>
-      </div>
-      <div>
-        <p class="small"><b>Legal</b></p>
-        <p class="small"><a href="#">Política de Privacidade</a></p>
-        <p class="small"><a href="#">Termos de Uso</a></p>
-        <p class="small">CNPJ 00.000.000/0000-00</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Avanci Consultoria",
-    "url": "https://www.avanciconsultoria.com.br",
-    "logo": "https://www.avanciconsultoria.com.br/img/logo.png",
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "contactType": "sales",
-      "email": "contato@avanciconsultoria.com.br",
-      "telephone": "+55-41-99999-9999",
-      "areaServed": "BR"
-    }]
-  }
-  </script>
-
-  <script>
-    // Atualiza ano no rodapé
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Menu responsivo
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.getElementById('menu');
-    toggle?.addEventListener('click', ()=>{
-      const ul = menu.querySelector('ul');
-      const shown = getComputedStyle(ul).display !== 'none';
-      ul.style.display = shown ? 'none' : 'flex';
-      toggle.setAttribute('aria-expanded', String(!shown));
-    });
-
-    // Mensagem simples de sucesso (Netlify Forms)
-    if (window.location.hash === '#enviado') {
-      alert('Mensagem enviada! Obrigado pelo contato.');
-    }
-  </script>
-
-  <!--
-    ⚡ Guia rápido de publicação
-    1) Salve este arquivo como index.html na raiz do projeto.
-    2) Hospedagem fácil: Netlify (arraste e solte) ou Vercel.
-       - Netlify Forms já funciona com o atributo data-netlify do formulário.
-    3) Altere e-mails, telefone e CNPJ no rodapé/contato.
-    4) Troque /img/og-cover.jpg e /img/logo.png pelos arquivos reais da marca.
-    5) Opcional: crie robots.txt e sitemap.xml (modelos abaixo).
-
-    robots.txt
-    -----------
-    User-agent: *
-    Allow: /
-    Sitemap: https://www.avanciconsultoria.com.br/sitemap.xml
-
-    sitemap.xml (arquivo separado na raiz)
-    --------------------------------------
-    <?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      <url><loc>https://www.avanciconsultoria.com.br/</loc></url>
-    </urlset>
-  -->
-</body>
-</html>
+diff --git a/index.html b/index.html
+index 6f4c346992a5b2efcae4b732f1beb5ab72347996..05c7fa9cd5c45f1fd7b93a4bdccfe29c88e8d81a 100644
+--- a/index.html
++++ b/index.html
+@@ -26,140 +26,150 @@
+       --paper:#ffffff;      /* superfícies */
+       --ink:#0f172a;        /* texto principal */
+       --cloud:#F3F6FA;      /* fundo claro */
+       --radius:18px;        /* raios de borda */
+       --maxw:1200px;        /* largura máxima */
+       --shadow:0 10px 30px rgba(10,35,66,.12);
+     }
+     *{box-sizing:border-box}
+     html{scroll-behavior:smooth}
+     body{
+       margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+       color:var(--ink);
+       background:linear-gradient(180deg,#0A2342 0%, #0A2342 22%, #F3F6FA 22.1%, #F3F6FA 100%);
+     }
+     a{color:inherit; text-decoration:none}
+     img{max-width:100%; display:block}
+     .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+ 
+     /* Header */
+     header{
+       position:sticky; top:0; z-index:50;
+       backdrop-filter:saturate(180%) blur(14px);
+       background:rgba(10,35,66,.78); border-bottom:1px solid rgba(255,255,255,.08);
+     }
+     .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+-    .brand{display:flex; align-items:center; gap:12px; color:#fff; font-weight:700; letter-spacing:.3px}
+-    .brand-logo{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:12px; background:rgba(255,255,255,.06); box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+-    .brand-logo svg{width:26px; height:26px}
+-    .brand-text{font-size:18px}
++    .brand{display:flex; align-items:center; gap:14px; color:#fff; font-weight:700; letter-spacing:.3px}
++    .brand-logo{display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:16px; background:linear-gradient(140deg, rgba(255,255,255,.18), rgba(255,255,255,.06)); border:1px solid rgba(255,255,255,.28); box-shadow:0 14px 28px rgba(10,35,66,.38); overflow:hidden}
++    .brand-logo img{width:100%; height:100%; object-fit:cover}
++    .brand-text{font-size:16px; letter-spacing:.18em; text-transform:uppercase}
+     nav ul{list-style:none; display:flex; gap:26px; margin:0; padding:0}
+     nav a{color:#e5ecff; font-weight:500; opacity:.9}
+     nav a:hover{opacity:1}
+     .nav-cta{display:flex; align-items:center; gap:10px}
+ 
+     /* Buttons */
+     .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; font-weight:600; padding:12px 18px; border-radius:999px; border:1px solid transparent; transition:transform .06s ease, box-shadow .2s ease, background .2s ease; cursor:pointer}
+     .btn:active{transform:translateY(1px)}
+     .btn-primary{background:var(--orange); color:#1b1b1b; box-shadow:0 6px 18px rgba(245,166,35,.35)}
+     .btn-primary:hover{filter:saturate(1.05) brightness(1.02)}
+     .btn-ghost{background:transparent; color:#fff; border-color:rgba(255,255,255,.25)}
+     .btn-ghost:hover{background:rgba(255,255,255,.08)}
+ 
+     /* Hero */
+     .hero{color:#fff; padding:86px 0 92px}
+     .hero-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center}
+     .eyebrow{display:inline-block; font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:#c5d3ff; margin-bottom:14px}
+     .h1{font-size:46px; line-height:1.1; margin:0 0 16px; font-weight:800}
+     .h1 .accent{color:var(--orange)}
+     .lead{font-size:18px; line-height:1.6; color:#dce6ff; margin:0 0 28px}
+     .stats{display:flex; gap:20px; flex-wrap:wrap; margin-top:18px}
+     .stat{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); padding:12px 16px; border-radius:14px; min-width:160px}
+     .stat b{font-size:20px; color:#fff}
+-    .hero-card{background:#0d2a54; border:1px solid rgba(255,255,255,.12); padding:24px; border-radius:var(--radius); box-shadow:var(--shadow)}
++    .hero-highlight{background:linear-gradient(150deg, rgba(10,35,66,.95) 0%, rgba(7,25,48,.96) 55%, rgba(8,30,60,.88) 100%); border:1px solid rgba(255,255,255,.14); border-radius:var(--radius); padding:32px; box-shadow:0 24px 52px rgba(10,35,66,.28); color:#f5f9ff; display:grid; gap:24px; text-align:left}
++    .hero-logo-lockup{display:flex; justify-content:center; background:radial-gradient(circle at 30% 20%, rgba(245,166,35,.38), transparent 60%); border-radius:24px; padding:18px}
++    .hero-logo-lockup img{width:240px; max-width:100%; filter:drop-shadow(0 26px 50px rgba(245,166,35,.28))}
++    .hero-highlight h2{margin:0; font-size:28px; font-weight:700; color:#fff}
++    .hero-highlight-lead{margin:0; color:#d9e7ff; line-height:1.6; font-size:17px}
++    .hero-badges{display:grid; gap:12px}
++    .hero-badge{display:flex; gap:12px; align-items:flex-start; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); border-radius:16px; padding:14px 16px}
++    .hero-badge svg{width:22px; height:22px; flex-shrink:0; color:var(--orange)}
++    .hero-badge span{color:#ecf2ff; font-size:15px; line-height:1.5}
+ 
+     /* Sections */
+     section{padding:80px 0}
+     .section-title{font-size:32px; margin:0 0 10px; font-weight:800; color:#0A2342}
+     .section-sub{color:var(--muted); margin-bottom:34px}
+ 
+     /* Cards e grids */
+     .grid{display:grid; gap:22px}
+     .grid-3{grid-template-columns:repeat(3, 1fr)}
+     .card{background:var(--paper); border:1px solid #e7eef7; border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); transition:transform .15s ease, box-shadow .2s}
+     .card:hover{transform:translateY(-2px); box-shadow:0 16px 38px rgba(10,35,66,.12)}
+     .card h3{margin:8px 0 8px; font-size:20px; color:var(--navy)}
+     .card p{margin:0; color:#475569}
+     .icon{width:28px; height:28px; display:inline-flex}
+ 
+     /* Chips/Destaques */
+     .pill{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; background:#fff; border:1px solid #e7eef7; box-shadow:var(--shadow)}
+ 
+     /* Logos/Clientes */
+     .logos{display:flex; gap:24px; flex-wrap:wrap; align-items:center}
+     .logo-badge{height:40px; width:140px; background:#fff; border:1px solid #e6eaf1; border-radius:12px; display:grid; place-items:center; color:#64748b}
+ 
+     /* Sobre */
+     .about{background:#fff; border:1px solid #e7eef7; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
+ 
+     /* Contato */
+     .contact{display:grid; grid-template-columns:1fr 1fr; gap:26px}
+     form{background:#fff; border:1px solid #e7eef7; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
+     label{display:block; font-weight:600; font-size:14px; margin:8px 0 6px; color:#0A2342}
+     input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid #d7deea; background:#f9fbfe; font-family:inherit; font-size:15px}
+     textarea{min-height:140px; resize:vertical}
+     .hint{font-size:12px; color:#6b7280}
+ 
+     /* Footer */
+     footer{background:#0A2342; color:#e2e8f0; padding:36px 0}
+     .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:36px; align-items:start}
+     .footer-brand{display:flex; align-items:center; gap:12px}
+     .small{font-size:14px; color:#cbd5f5}
+     .mt-0{margin-top:0}
+     .mt-8{margin-top:8px}
+     .mt-16{margin-top:16px}
+ 
+     /* Responsivo */
+     @media (max-width:960px){
+       .hero-grid{grid-template-columns:1fr; text-align:center}
++      .hero-highlight{margin:36px auto 0; padding:28px; text-align:left; max-width:520px}
++      .hero-logo-lockup{padding:14px}
+       .hero-grid .stats{justify-content:center}
+       .contact{grid-template-columns:1fr}
+       .footer-grid{grid-template-columns:1fr; text-align:center}
+       nav ul{display:none; position:absolute; top:64px; right:20px; background:#0a2342; padding:18px 22px; border-radius:16px; flex-direction:column; gap:18px; box-shadow:0 16px 30px rgba(0,0,0,.24)}
+       nav ul a{font-size:16px}
+       .menu-toggle{display:inline-flex}
+     }
+     .menu-toggle{display:none; width:40px; height:40px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.08); align-items:center; justify-content:center; color:#fff}
+   </style>
+ </head>
+ <body>
+   <!-- Header -->
+   <header>
+     <div class="container nav">
+       <a class="brand" href="#topo">
+         <span class="brand-logo" aria-hidden="true">
+-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 48L36 16h11l-9 22h10L25 48Z" fill="#F5A623"/></svg>
++          <img src="img/avanci-icon.svg" alt="" loading="lazy" />
+         </span>
+         <span class="brand-text">Avanci Consultoria</span>
+       </a>
+ 
+       <button class="menu-toggle" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
+         <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M3 5h14v2H3V5Zm0 4h14v2H3V9Zm0 4h14v2H3v-2Z"/></svg>
+       </button>
+ 
+       <nav id="menu">
+         <ul>
+           <li><a href="#servicos">Serviços</a></li>
+           <li><a href="#diferenciais">Diferenciais</a></li>
+           <li><a href="#sobre">Sobre</a></li>
+           <li><a href="#contato">Contato</a></li>
+         </ul>
+       </nav>
+ 
+       <div class="nav-cta">
+         <a class="btn btn-ghost" href="#contato">Contato</a>
+         <a class="btn btn-primary" href="https://wa.me/5541999999999" target="_blank" rel="noopener">Fale pelo WhatsApp</a>
+       </div>
+     </div>
+   </header>
+ 
+   <!-- Hero -->
+diff --git a/index.html b/index.html
+index 6f4c346992a5b2efcae4b732f1beb5ab72347996..05c7fa9cd5c45f1fd7b93a4bdccfe29c88e8d81a 100644
+--- a/index.html
++++ b/index.html
+@@ -170,64 +180,69 @@
+           <span class="eyebrow">ENGENHARIA ELÉTRICA</span>
+           <h1 class="h1">Energia com <span class="accent">inteligência</span> para seu projeto industrial</h1>
+           <p class="lead">Consultoria especializada em estudos de proteção, comissionamento e operação de sistemas elétricos de potência. Atuamos com foco em confiabilidade, segurança e retorno sobre o investimento.</p>
+ 
+           <div class="stats">
+             <div class="stat">
+               <b>15+ anos</b>
+               <p>de experiência em utilities e geração</p>
+             </div>
+             <div class="stat">
+               <b>120 MW</b>
+               <p>em usinas eólicas e solares acompanhadas</p>
+             </div>
+             <div class="stat">
+               <b>95%</b>
+               <p>dos clientes retornam com novos projetos</p>
+             </div>
+           </div>
+ 
+           <div class="mt-16">
+             <a class="btn btn-primary" href="#contato">Agendar diagnóstico</a>
+             <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+           </div>
+         </div>
+ 
+-        <div class="hero-card">
+-          <h2 class="mt-0">Soluções para cada fase</h2>
+-          <p>Da concepção ao comissionamento, mapeamos riscos, desenhamos proteções e entregamos energia segura.</p>
+-          <div class="mt-16 pill">
+-            <span class="icon" aria-hidden="true">
+-              <svg width="24" height="24" fill="none" stroke="#0A2342" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h16M4 12h16M4 17h16"/><path d="M8 3h8v2H8zM8 19h8v2H8z"/></svg>
+-            </span>
+-            <span>Planos personalizados por indústria</span>
++        <div class="hero-highlight" aria-labelledby="hero-highlight-title">
++          <div class="hero-logo-lockup">
++            <img src="img/avanci-logo.svg" alt="Logotipo da Avanci Consultoria" loading="lazy" />
+           </div>
+-          <div class="mt-16 pill">
+-            <span class="icon" aria-hidden="true">
+-              <svg width="24" height="24" fill="none" stroke="#0A2342" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="m4 12 5 5 11-11"/></svg>
+-            </span>
+-            <span>Equipe com certificações CREA e NR-10</span>
++          <h2 id="hero-highlight-title">Marca que transforma energia em resultados</h2>
++          <p class="hero-highlight-lead">Excelência visual e técnica reunidas para representar a confiança que os clientes depositam na Avanci Consultoria.</p>
++          <div class="hero-badges">
++            <div class="hero-badge">
++              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="m4 13 4 4 12-12"/></svg>
++              <span>Identidade que comunica segurança, inovação e visão de futuro para a indústria.</span>
++            </div>
++            <div class="hero-badge">
++              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 3 4 7v5c0 4.8 3.4 9.3 8 10 4.6-.7 8-5.2 8-10V7l-8-4Z"/><path d="M9 12.5 11.5 15 15 10"/></svg>
++              <span>Especialistas com mais de 15 anos protegendo ativos de geração e distribuição de energia.</span>
++            </div>
++            <div class="hero-badge">
++              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 18v4"/><path d="m16.24 16.24 2.83 2.83"/><path d="M18 12h4"/><path d="m16.24 7.76 2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
++              <span>Parceira estratégica para projetos que buscam energia segura, eficiente e inteligente.</span>
++            </div>
+           </div>
+         </div>
+       </div>
+     </section>
+ 
+     <!-- Serviços -->
+     <section id="servicos">
+       <div class="container">
+         <h2 class="section-title">Serviços especializados</h2>
+         <p class="section-sub">Suporte completo para plantas industriais, usinas de geração e subestações.</p>
+ 
+         <div class="grid grid-3">
+           <article class="card">
+             <span class="icon" aria-hidden="true">
+               <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M4 17V7l10-4 10 4v10l-10 4-10-4Z"/><path d="m14 11 10-4M4 7l10 4m0 0v10"/></svg>
+             </span>
+             <h3>Estudos de proteção</h3>
+             <p>Ajustes finos, coordenação e análise de curto-circuito em softwares líderes de mercado.</p>
+           </article>
+ 
+           <article class="card">
+             <span class="icon" aria-hidden="true">
+               <svg width="28" height="28" fill="none" stroke="#F5A623" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M5 20v-9l9-5 9 5v9l-9 5-9-5Z"/><path d="M5 11 14 6l9 5M14 27V17"/></svg>
+             </span>
+             <h3>Comissionamento</h3>
